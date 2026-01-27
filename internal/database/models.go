@@ -20,6 +20,7 @@ type Document struct {
 	Title       string
 	Description string
 	Priority    int32
+	Visible     bool
 }
 
 type User struct {
