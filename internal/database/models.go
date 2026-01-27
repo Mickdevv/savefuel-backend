@@ -12,19 +12,15 @@ import (
 )
 
 type Document struct {
-	ID        uuid.UUID
-	CreatedAt time.Time
-	Path      string
-	Filename  string
-	Filetype  string
-}
-
-type DocumentMetadatum struct {
 	ID          uuid.UUID
-	DocumentID  uuid.UUID
+	CreatedAt   time.Time
+	Path        string
+	Filename    string
+	Filetype    string
 	Locale      string
 	Title       string
-	Description sql.NullString
+	Description string
+	Priority    sql.NullInt16
 }
 
 type User struct {

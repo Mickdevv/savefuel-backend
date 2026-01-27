@@ -13,23 +13,17 @@ CREATE TABLE documents(
 	created_at timestamp not null default NOW(),
 	path TEXT NOT NULL,
 	filename text not null,
-	filetype text not null
-);
-CREATE TABLE document_metadata(
-	id UUID primary key unique,
-	document_id UUID not null references documents(id) on delete cascade,
+	filetype text not null,
 	locale text not null,
 	title text not null,
-	description text,
-	UNIQUE(document_id, locale)
-
+	description text not null,
+	priority smallint 
 );
 -- +goose StatementEnd
 
 -- +goose Down
 -- +goose StatementBegin
 
-DROP TABLE document_translations;
 DROP TABLE documents;
 DROP TABLE users;
 

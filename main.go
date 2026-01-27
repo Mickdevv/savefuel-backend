@@ -30,7 +30,7 @@ func main() {
 
 	mux := http.NewServeMux()
 
-	fsHandler := http.StripPrefix("/static", http.FileServer(http.Dir("./static")))
+	fsHandler := http.StripPrefix("/static", http.FileServer(http.Dir(os.Getenv("STATIC_FILES_DIR"))))
 	mux.Handle("/static/", fsHandler)
 
 	documents.RegisterRoutes(mux, &serverConfig)

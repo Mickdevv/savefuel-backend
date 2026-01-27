@@ -15,7 +15,7 @@ func getDocuments(serverCfg *api.ServerConfig, w http.ResponseWriter, r *http.Re
 }
 
 func uploadDocument(serverCfg *api.ServerConfig, w http.ResponseWriter, r *http.Request) {
-	err := r.ParseMultipartForm(200000000)
+	err := r.ParseMultipartForm(10 >> 20)
 	if err != nil {
 		api.RespondWithError(w, http.StatusInternalServerError, "File too large!", err)
 		return

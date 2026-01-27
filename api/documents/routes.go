@@ -1,9 +1,8 @@
 package documents
 
 import (
-	"net/http"
-
 	"github.com/Mickdevv/savefuel-backend/api"
+	"net/http"
 )
 
 func RegisterRoutes(mux *http.ServeMux, serverCfg *api.ServerConfig) {
