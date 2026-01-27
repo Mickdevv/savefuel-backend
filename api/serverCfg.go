@@ -7,8 +7,9 @@ import (
 )
 
 type ServerConfig struct {
-	JWT_SECRET string
-	DB         *database.Queries
+	JWT_SECRET       string
+	DB               *database.Queries
+	STATIC_FILES_DIR string
 }
 
 type AppHandler func(cfg *ServerConfig, w http.ResponseWriter, r *http.Request)

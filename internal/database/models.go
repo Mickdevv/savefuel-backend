@@ -5,7 +5,6 @@
 package database
 
 import (
-	"database/sql"
 	"time"
 
 	"github.com/google/uuid"
@@ -20,7 +19,7 @@ type Document struct {
 	Locale      string
 	Title       string
 	Description string
-	Priority    sql.NullInt16
+	Priority    int32
 }
 
 type User struct {

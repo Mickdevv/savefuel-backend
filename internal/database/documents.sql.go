@@ -7,13 +7,12 @@ package database
 
 import (
 	"context"
-	"database/sql"
 )
 
 const createDocument = `-- name: CreateDocument :one
 insert into documents (id, created_at, path, filename, filetype, locale, title, description, priority)
 values (
-	generate_random_UUID(),
+	gen_random_UUID(),
 	NOW(),
 	$1, -- path
 	$2, -- filename
@@ -33,7 +32,7 @@ type CreateDocumentParams struct {
 	Locale      string
 	Title       string
 	Description string
-	Priority    sql.NullInt16
+	Priority    int32
 }
 
 func (q *Queries) CreateDocument(ctx context.Context, arg CreateDocumentParams) (Document, error) {

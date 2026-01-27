@@ -24,8 +24,9 @@ func main() {
 	}
 
 	serverConfig := api.ServerConfig{
-		JWT_SECRET: os.Getenv("JWT_SECRET"),
-		DB:         database.New(dbConn),
+		JWT_SECRET:       os.Getenv("JWT_SECRET"),
+		DB:               database.New(dbConn),
+		STATIC_FILES_DIR: os.Getenv("STATIC_FILES_DIR"),
 	}
 
 	mux := http.NewServeMux()

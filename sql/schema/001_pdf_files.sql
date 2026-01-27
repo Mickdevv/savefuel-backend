@@ -17,7 +17,7 @@ CREATE TABLE documents(
 	locale text not null,
 	title text not null,
 	description text not null,
-	priority smallint 
+	priority int not null default 0
 );
 -- +goose StatementEnd
 
