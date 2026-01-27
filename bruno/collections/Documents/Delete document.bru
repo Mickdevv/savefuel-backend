@@ -1,0 +1,16 @@
+meta {
+  name: Delete document
+  type: http
+  seq: 6
+}
+
+delete {
+  url: {{base_url}}/documents/{{document_id}}
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

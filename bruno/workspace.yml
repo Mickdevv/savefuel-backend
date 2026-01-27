@@ -1,0 +1,14 @@
+opencollection: 1.0.0
+info:
+  name: "bruno"
+  type: workspace
+
+collections:
+  - name: "Documents"
+    path: "collections/Documents"
+
+specs:
+
+docs: ''
+
+activeEnvironmentUid: 1u74c4000000000000000

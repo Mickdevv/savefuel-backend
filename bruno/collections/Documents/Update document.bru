@@ -1,0 +1,26 @@
+meta {
+  name: Update document
+  type: http
+  seq: 5
+}
+
+put {
+  url: {{base_url}}/documents/{{document_id}}
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "title": "test_title_updated",
+    "visible": true,
+    "description": "test",
+    "locale": "test",
+    "priority": 2
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

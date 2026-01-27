@@ -37,6 +37,7 @@ func updateDocument(serverCfg *api.ServerConfig, w http.ResponseWriter, r *http.
 		Locale      string `json:"locale"`
 		Description string `json:"description"`
 		Priority    int32  `json:"priority"`
+		Visible     bool   `json:"visible"`
 	}
 
 	decoder := json.NewDecoder(r.Body)
@@ -59,6 +60,8 @@ func updateDocument(serverCfg *api.ServerConfig, w http.ResponseWriter, r *http.
 		ID:          id,
 		Description: params.Description,
 		Priority:    params.Priority,
+		Visible:     params.Visible,
+		Locale:      params.Locale,
 	})
 	if err != nil {
 		api.RespondWithError(w, http.StatusInternalServerError, "Error updating database record", err)

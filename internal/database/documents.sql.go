@@ -136,14 +136,11 @@ func (q *Queries) GetDocuments(ctx context.Context) ([]Document, error) {
 }
 
 const updateDocument = `-- name: UpdateDocument :one
-update documents set filename = $2, path = $3, filetype = $4, locale = $5, title = $6, description =$7, priority = $8, visible = $9 where id = $1 returning id, created_at, path, filename, filetype, locale, title, description, priority, visible
+update documents set  locale = $2, title = $3, description =$4, priority = $5, visible = $6 where id = $1 returning id, created_at, path, filename, filetype, locale, title, description, priority, visible
 `
 
 type UpdateDocumentParams struct {
 	ID          uuid.UUID
-	Filename    string
-	Path        string
-	Filetype    string
 	Locale      string
 	Title       string
 	Description string
@@ -154,9 +151,6 @@ type UpdateDocumentParams struct {
 func (q *Queries) UpdateDocument(ctx context.Context, arg UpdateDocumentParams) (Document, error) {
 	row := q.db.QueryRowContext(ctx, updateDocument,
 		arg.ID,
-		arg.Filename,
-		arg.Path,
-		arg.Filetype,
 		arg.Locale,
 		arg.Title,
 		arg.Description,

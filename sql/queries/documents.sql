@@ -15,7 +15,7 @@ values (
 	returning *;
 
 -- name: UpdateDocument :one
-update documents set filename = $2, path = $3, filetype = $4, locale = $5, title = $6, description =$7, priority = $8, visible = $9 where id = $1 returning *;
+update documents set  locale = $2, title = $3, description =$4, priority = $5, visible = $6 where id = $1 returning *;
 
 -- name: GetDocuments :many
 select id, created_at, path, filename, filetype, locale, title, description, priority, visible from documents;

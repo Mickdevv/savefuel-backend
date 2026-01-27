@@ -1,0 +1,20 @@
+meta {
+  name: Create document
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{base_url}}/documents
+  body: none
+  auth: inherit
+}
+
+script:post-response {
+  bru.setVar("document_id",res.data.id)
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
