@@ -1,3 +1,4 @@
 docker-compose.y*ml
 .env
 env
+.pgpass
