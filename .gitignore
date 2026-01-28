@@ -3,5 +3,5 @@ bruno/environments/*
 .env
 env
 .pgpass
-static/*
+static/documents/
 certs/

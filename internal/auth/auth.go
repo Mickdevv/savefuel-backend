@@ -36,7 +36,7 @@ func CreateJWT(tokenSecret string, userId uuid.UUID) (string, error) {
 	return s, nil
 }
 
-func ValidateJWT(tokenString, tokenSecret string) (uuid.UUID, error) {
+func ValidateJWT(tokenString, tokenSecret string) (Claims, error) {
 	token, err := jwt.ParseWithClaims(tokenString, &Claims{}, func(t *jwt.Token) (any, error) {
 		if t.Method.Alg() != jwt.SigningMethodES256.Alg() {
 			return nil, fmt.Errorf("Incorrect signing method: %v", t.Header["alg"])
@@ -44,22 +44,22 @@ func ValidateJWT(tokenString, tokenSecret string) (uuid.UUID, error) {
 		return []byte(tokenSecret), nil
 	})
 	if err != nil {
-		return uuid.Nil, err
+		return Claims{}, err
 	}
 
 	if !token.Valid {
-		return uuid.Nil, err
+		return Claims{}, err
 	}
 
 	claims, ok := token.Claims.(*Claims)
 	if !ok {
-		return uuid.Nil, err
+		return Claims{}, err
 	}
 
-	subject, err := uuid.Parse(claims.UserId)
+	_, err = uuid.Parse(claims.UserId)
 	if err != nil {
-		return uuid.Nil, err
+		return Claims{}, err
 	}
 
-	return subject, nil
+	return *claims, nil
 }
