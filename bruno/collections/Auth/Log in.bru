@@ -1,0 +1,37 @@
+meta {
+  name: Log in
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{base_url}}/login
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "email":"{{user_email}}",
+    "password":"test123"
+  }
+}
+
+vars:pre-request {
+  user_email: test-1769794125809@test.com
+}
+
+script:pre-request {
+  bru.setVar("timestamp", Date.now())
+  
+}
+
+script:post-response {
+  bru.setVar("access_token", res.body.access_token)
+  bru.setVar("refresh_token", res.body.refresh_token)
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

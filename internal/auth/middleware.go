@@ -2,7 +2,6 @@ package auth
 
 import (
 	"context"
-	"fmt"
 	"net/http"
 	"strings"
 
@@ -12,15 +11,12 @@ import (
 func AuthMiddleware(serverCfg *api.ServerConfig, next http.Handler) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 
-		fmt.Println("Auth middleware")
-
 		authorizationHeader := r.Header.Get("Authorization")
-		if !strings.HasPrefix("Bearer ", authorizationHeader) {
+		if !strings.HasPrefix(authorizationHeader, "Bearer ") {
 			api.RespondWithError(w, http.StatusUnauthorized, "Token header malformed", nil)
 			return
 		}
-
-		tokenString := strings.TrimPrefix("Bearer ", authorizationHeader)
+		tokenString := strings.TrimPrefix(authorizationHeader, "Bearer ")
 
 		claims, err := ValidateJWT(tokenString, serverCfg.JWT_SECRET)
 		if err != nil {
@@ -28,7 +24,6 @@ func AuthMiddleware(serverCfg *api.ServerConfig, next http.Handler) http.Handler
 			return
 		}
 
-		fmt.Println("Auth middleware", claims)
 		ctx := context.WithValue(r.Context(), "claims", claims)
 		next.ServeHTTP(w, r.WithContext(ctx))
 	}

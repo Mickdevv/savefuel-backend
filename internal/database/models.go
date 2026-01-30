@@ -5,6 +5,7 @@
 package database
 
 import (
+	"database/sql"
 	"time"
 
 	"github.com/google/uuid"
@@ -20,13 +21,33 @@ type Document struct {
 	Title       string
 	Description string
 	Priority    int32
-	Visible     bool
+	Active      bool
+	CategoryID  uuid.UUID
+	Hits        sql.NullInt32
+}
+
+type DocumentCategory struct {
+	ID        uuid.UUID
+	Name      string
+	CreatedAt time.Time
+	UpdatedAt time.Time
+	Active    bool
+}
+
+type RefreshToken struct {
+	Token     string
+	RevokedAt sql.NullTime
+	CreatedAt time.Time
+	UpdatedAt time.Time
+	ExpiresAt time.Time
+	UserID    uuid.UUID
 }
 
 type User struct {
-	ID        uuid.UUID
-	CreatedAt time.Time
-	UpdatedAt time.Time
-	Email     string
-	Password  string
+	ID            uuid.UUID
+	CreatedAt     time.Time
+	UpdatedAt     time.Time
+	Email         string
+	EmailVerified bool
+	Password      string
 }

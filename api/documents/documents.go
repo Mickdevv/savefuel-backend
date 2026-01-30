@@ -2,7 +2,6 @@ package documents
 
 import (
 	"encoding/json"
-	"fmt"
 	"io"
 	"net/http"
 	"os"
@@ -26,18 +25,20 @@ type document struct {
 	Priority    int32     `json:"priority"`
 	Path        string    `json:"path"`
 	Filetype    string    `json:"filetype"`
-	Visible     bool      `json:"visible"`
+	Active      bool      `json:"active"`
+	CategoryID  uuid.UUID `json:"category_id"`
 }
 
 func updateDocument(serverCfg *api.ServerConfig, w http.ResponseWriter, r *http.Request) {
 	defer r.Body.Close()
 
 	type parameters struct {
-		Title       string `json:"title"`
-		Locale      string `json:"locale"`
-		Description string `json:"description"`
-		Priority    int32  `json:"priority"`
-		Visible     bool   `json:"visible"`
+		Title       string    `json:"title"`
+		Locale      string    `json:"locale"`
+		Description string    `json:"description"`
+		Priority    int32     `json:"priority"`
+		Active      bool      `json:"active"`
+		CategoryID  uuid.UUID `json:"category_id"`
 	}
 
 	decoder := json.NewDecoder(r.Body)
@@ -60,7 +61,7 @@ func updateDocument(serverCfg *api.ServerConfig, w http.ResponseWriter, r *http.
 		ID:          id,
 		Description: params.Description,
 		Priority:    params.Priority,
-		Visible:     params.Visible,
+		Active:      params.Active,
 		Locale:      params.Locale,
 	})
 	if err != nil {
@@ -78,11 +79,12 @@ func updateDocument(serverCfg *api.ServerConfig, w http.ResponseWriter, r *http.
 		Title:       d.Title,
 		Filename:    d.Filename,
 		Locale:      d.Locale,
+		CategoryID:  d.CategoryID,
 		Description: d.Description,
 		Priority:    d.Priority,
 		Path:        d.Path,
 		Filetype:    d.Filetype,
-		Visible:     d.Visible,
+		Active:      d.Active,
 	}}
 
 	api.RespondWithJSON(w, http.StatusOK, res)
@@ -177,6 +179,7 @@ func getDocuments(serverCfg *api.ServerConfig, w http.ResponseWriter, r *http.Re
 			Priority:    d.Priority,
 			Path:        d.Path,
 			Filetype:    d.Filetype,
+			CategoryID:  d.CategoryID,
 		})
 
 	}
@@ -187,11 +190,12 @@ func getDocuments(serverCfg *api.ServerConfig, w http.ResponseWriter, r *http.Re
 func uploadDocument(serverCfg *api.ServerConfig, w http.ResponseWriter, r *http.Request) {
 
 	type parameters struct {
-		Title       string `json:"title"`
-		Filename    string `json:"filename"`
-		Locale      string `json:"locale"`
-		Description string `json:"description"`
-		Priority    int32  `json:"priority"`
+		Title       string    `json:"title"`
+		Filename    string    `json:"filename"`
+		Locale      string    `json:"locale"`
+		Description string    `json:"description"`
+		Priority    int32     `json:"priority"`
+		CategoryID  uuid.UUID `json:"category_id"`
 	}
 
 	metadata := r.FormValue("metadata")
@@ -216,8 +220,6 @@ func uploadDocument(serverCfg *api.ServerConfig, w http.ResponseWriter, r *http.
 	}
 
 	defer file.Close()
-
-	fmt.Println("File info : "+handler.Filename, handler.Size, handler.Header)
 
 	filename := filepath.Base(handler.Filename)
 
@@ -246,6 +248,7 @@ func uploadDocument(serverCfg *api.ServerConfig, w http.ResponseWriter, r *http.
 		Priority:    params.Priority,
 		Path:        destinationPath,
 		Filetype:    fileType,
+		CategoryID:  params.CategoryID,
 	})
 	if err != nil {
 		api.RespondWithError(w, http.StatusInternalServerError, "Error adding document to database", err)
@@ -264,6 +267,7 @@ func uploadDocument(serverCfg *api.ServerConfig, w http.ResponseWriter, r *http.
 	res.Data.Title = uploaded_document.Title
 	res.Data.Filename = uploaded_document.Filename
 	res.Data.Locale = uploaded_document.Locale
+	res.Data.CategoryID = uploaded_document.CategoryID
 	res.Data.Description = uploaded_document.Description
 	res.Data.Priority = uploaded_document.Priority
 	res.Data.Path = destinationPath

@@ -1,4 +1,5 @@
 docker-compose.y*ml
+reset_db.sh
 bruno/environments/*
 .env
 env

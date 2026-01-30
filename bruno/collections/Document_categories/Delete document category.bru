@@ -1,0 +1,16 @@
+meta {
+  name: Delete document category
+  type: http
+  seq: 4
+}
+
+delete {
+  url: {{base_url}}/document_categories/{{category_id}}
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

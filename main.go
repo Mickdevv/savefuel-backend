@@ -8,6 +8,7 @@ import (
 	"os"
 
 	"github.com/Mickdevv/savefuel-backend/api"
+	"github.com/Mickdevv/savefuel-backend/api/auth"
 	"github.com/Mickdevv/savefuel-backend/api/documents"
 	"github.com/Mickdevv/savefuel-backend/internal/database"
 	"github.com/joho/godotenv"
@@ -35,6 +36,7 @@ func main() {
 	mux.Handle("/static/", fsHandler)
 
 	documents.RegisterRoutes(mux, &serverConfig)
+	auth.RegisterRoutes(mux, &serverConfig)
 
 	serverPort := os.Getenv("SERVER_PORT")
 	server := &http.Server{

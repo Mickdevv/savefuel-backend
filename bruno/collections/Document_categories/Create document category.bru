@@ -1,0 +1,20 @@
+meta {
+  name: Create document category
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{base_url}}/document_categories
+  body: none
+  auth: inherit
+}
+
+script:post-response {
+  bru.setVar("category_id", res.body.data.id)
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

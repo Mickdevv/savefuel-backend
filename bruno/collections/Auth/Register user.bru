@@ -1,0 +1,32 @@
+meta {
+  name: Register user
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{base_url}}/register
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "email":"test-{{timestamp}}@test.com",
+    "password_1":"test123",
+    "password_2":"test123"
+  }
+}
+
+script:pre-request {
+  bru.setVar("timestamp", Date.now())
+}
+
+script:post-response {
+  bru.setVar("user_email",res.body.email)
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

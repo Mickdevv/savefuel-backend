@@ -1,0 +1,16 @@
+meta {
+  name: Get document category
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{base_url}}/document_categories/{{category_id}}
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

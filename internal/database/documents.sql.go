@@ -7,12 +7,13 @@ package database
 
 import (
 	"context"
+	"time"
 
 	"github.com/google/uuid"
 )
 
 const createDocument = `-- name: CreateDocument :one
-insert into documents (id, created_at, path, filename, filetype, locale, title, description, priority, visible)
+insert into documents (id, created_at, path, filename, filetype, locale, title, description, priority, active, category_id, hits)
 values (
 	gen_random_UUID(),
 	NOW(),
@@ -23,9 +24,11 @@ values (
 	$5, -- title
 	$6, -- description
 	$7, -- priority
-  $8 -- visible
+  $8, -- active
+  $9, -- category_id
+  0 -- hits
 	)
-	returning id, created_at, path, filename, filetype, locale, title, description, priority, visible
+	returning id, created_at, path, filename, filetype, locale, title, description, priority, active, category_id, hits
 `
 
 type CreateDocumentParams struct {
@@ -36,7 +39,8 @@ type CreateDocumentParams struct {
 	Title       string
 	Description string
 	Priority    int32
-	Visible     bool
+	Active      bool
+	CategoryID  uuid.UUID
 }
 
 func (q *Queries) CreateDocument(ctx context.Context, arg CreateDocumentParams) (Document, error) {
@@ -48,7 +52,8 @@ func (q *Queries) CreateDocument(ctx context.Context, arg CreateDocumentParams) 
 		arg.Title,
 		arg.Description,
 		arg.Priority,
-		arg.Visible,
+		arg.Active,
+		arg.CategoryID,
 	)
 	var i Document
 	err := row.Scan(
@@ -61,7 +66,9 @@ func (q *Queries) CreateDocument(ctx context.Context, arg CreateDocumentParams) 
 		&i.Title,
 		&i.Description,
 		&i.Priority,
-		&i.Visible,
+		&i.Active,
+		&i.CategoryID,
+		&i.Hits,
 	)
 	return i, err
 }
@@ -76,51 +83,81 @@ func (q *Queries) DeleteDocument(ctx context.Context, id uuid.UUID) error {
 }
 
 const getDocument = `-- name: GetDocument :one
-select id, created_at, path, filename, filetype, locale, title, description, priority, visible from documents where id = $1
+select id, created_at, path, filename, filetype, category_id, locale, title, description, priority, active from documents where id = $1
 `
 
-func (q *Queries) GetDocument(ctx context.Context, id uuid.UUID) (Document, error) {
+type GetDocumentRow struct {
+	ID          uuid.UUID
+	CreatedAt   time.Time
+	Path        string
+	Filename    string
+	Filetype    string
+	CategoryID  uuid.UUID
+	Locale      string
+	Title       string
+	Description string
+	Priority    int32
+	Active      bool
+}
+
+func (q *Queries) GetDocument(ctx context.Context, id uuid.UUID) (GetDocumentRow, error) {
 	row := q.db.QueryRowContext(ctx, getDocument, id)
-	var i Document
+	var i GetDocumentRow
 	err := row.Scan(
 		&i.ID,
 		&i.CreatedAt,
 		&i.Path,
 		&i.Filename,
 		&i.Filetype,
+		&i.CategoryID,
 		&i.Locale,
 		&i.Title,
 		&i.Description,
 		&i.Priority,
-		&i.Visible,
+		&i.Active,
 	)
 	return i, err
 }
 
 const getDocuments = `-- name: GetDocuments :many
-select id, created_at, path, filename, filetype, locale, title, description, priority, visible from documents
+select id, created_at, path, filename, filetype, category_id, locale, title, description, priority, active from documents
 `
 
-func (q *Queries) GetDocuments(ctx context.Context) ([]Document, error) {
+type GetDocumentsRow struct {
+	ID          uuid.UUID
+	CreatedAt   time.Time
+	Path        string
+	Filename    string
+	Filetype    string
+	CategoryID  uuid.UUID
+	Locale      string
+	Title       string
+	Description string
+	Priority    int32
+	Active      bool
+}
+
+func (q *Queries) GetDocuments(ctx context.Context) ([]GetDocumentsRow, error) {
 	rows, err := q.db.QueryContext(ctx, getDocuments)
 	if err != nil {
 		return nil, err
 	}
 	defer rows.Close()
-	var items []Document
+	var items []GetDocumentsRow
 	for rows.Next() {
-		var i Document
+		var i GetDocumentsRow
 		if err := rows.Scan(
 			&i.ID,
 			&i.CreatedAt,
 			&i.Path,
 			&i.Filename,
 			&i.Filetype,
+			&i.CategoryID,
 			&i.Locale,
 			&i.Title,
 			&i.Description,
 			&i.Priority,
-			&i.Visible,
+			&i.Active,
 		); err != nil {
 			return nil, err
 		}
@@ -136,7 +173,7 @@ func (q *Queries) GetDocuments(ctx context.Context) ([]Document, error) {
 }
 
 const updateDocument = `-- name: UpdateDocument :one
-update documents set  locale = $2, title = $3, description =$4, priority = $5, visible = $6 where id = $1 returning id, created_at, path, filename, filetype, locale, title, description, priority, visible
+update documents set  locale = $2, title = $3, description =$4, priority = $5, active = $6, category_id = $7 where id = $1 returning id, created_at, path, filename, filetype, locale, title, description, priority, active, category_id, hits
 `
 
 type UpdateDocumentParams struct {
@@ -145,7 +182,8 @@ type UpdateDocumentParams struct {
 	Title       string
 	Description string
 	Priority    int32
-	Visible     bool
+	Active      bool
+	CategoryID  uuid.UUID
 }
 
 func (q *Queries) UpdateDocument(ctx context.Context, arg UpdateDocumentParams) (Document, error) {
@@ -155,7 +193,8 @@ func (q *Queries) UpdateDocument(ctx context.Context, arg UpdateDocumentParams) 
 		arg.Title,
 		arg.Description,
 		arg.Priority,
-		arg.Visible,
+		arg.Active,
+		arg.CategoryID,
 	)
 	var i Document
 	err := row.Scan(
@@ -168,7 +207,9 @@ func (q *Queries) UpdateDocument(ctx context.Context, arg UpdateDocumentParams) 
 		&i.Title,
 		&i.Description,
 		&i.Priority,
-		&i.Visible,
+		&i.Active,
+		&i.CategoryID,
+		&i.Hits,
 	)
 	return i, err
 }

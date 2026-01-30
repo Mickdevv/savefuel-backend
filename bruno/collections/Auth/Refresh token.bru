@@ -1,0 +1,31 @@
+meta {
+  name: Refresh token
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{base_url}}/refresh
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{access_token}}
+}
+
+body:json {
+  {
+    "refresh_token":"{{refresh_token}}"
+  }
+}
+
+vars:pre-request {
+  user_email: test-1769794125809@test.com
+  access_token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiYTViYmY1ODItZGJiZS00MWI2LWE5MDctMjc1NzJkYWJiZjU2Iiwicm9sZSI6IlRlc3RSb2xlVmFsdWUiLCJpc3MiOiJzYXZlZnVlbCIsInN1YiI6ImE1YmJmNTgyLWRiYmUtNDFiNi1hOTA3LTI3NTcyZGFiYmY1NiIsImV4cCI6MTc2OTgwMDA3OSwiaWF0IjoxNzY5Nzk2NDc5fQ.z1TNhc73B3znvq9f6yb8U1lAuXT0_wj2R34XHIBwf5A
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

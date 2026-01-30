@@ -7,18 +7,22 @@ package database
 
 import (
 	"context"
+	"time"
+
+	"github.com/google/uuid"
 )
 
 const createUser = `-- name: CreateUser :one
-insert into users (id, created_at, updated_at, email, password)
+insert into users (id, created_at, updated_at, email, password, email_verified)
 values (
 	gen_random_UUID(),
 	NOW(),
 	NOW(),
 	$1,
-	$2
+	$2,
+  false
 	)
-	returning id, created_at, updated_at, email, password
+	returning id, created_at, updated_at, email, email_verified
 `
 
 type CreateUserParams struct {
@@ -26,15 +30,178 @@ type CreateUserParams struct {
 	Password string
 }
 
-func (q *Queries) CreateUser(ctx context.Context, arg CreateUserParams) (User, error) {
+type CreateUserRow struct {
+	ID            uuid.UUID
+	CreatedAt     time.Time
+	UpdatedAt     time.Time
+	Email         string
+	EmailVerified bool
+}
+
+func (q *Queries) CreateUser(ctx context.Context, arg CreateUserParams) (CreateUserRow, error) {
 	row := q.db.QueryRowContext(ctx, createUser, arg.Email, arg.Password)
+	var i CreateUserRow
+	err := row.Scan(
+		&i.ID,
+		&i.CreatedAt,
+		&i.UpdatedAt,
+		&i.Email,
+		&i.EmailVerified,
+	)
+	return i, err
+}
+
+const deleteuser = `-- name: Deleteuser :exec
+delete from users where id = $1
+`
+
+func (q *Queries) Deleteuser(ctx context.Context, id uuid.UUID) error {
+	_, err := q.db.ExecContext(ctx, deleteuser, id)
+	return err
+}
+
+const getUserByEmail = `-- name: GetUserByEmail :one
+select id, created_at, updated_at, email, email_verified from users where email = $1
+`
+
+type GetUserByEmailRow struct {
+	ID            uuid.UUID
+	CreatedAt     time.Time
+	UpdatedAt     time.Time
+	Email         string
+	EmailVerified bool
+}
+
+func (q *Queries) GetUserByEmail(ctx context.Context, email string) (GetUserByEmailRow, error) {
+	row := q.db.QueryRowContext(ctx, getUserByEmail, email)
+	var i GetUserByEmailRow
+	err := row.Scan(
+		&i.ID,
+		&i.CreatedAt,
+		&i.UpdatedAt,
+		&i.Email,
+		&i.EmailVerified,
+	)
+	return i, err
+}
+
+const getUserById = `-- name: GetUserById :one
+select id, created_at, updated_at, email, email_verified from users where id = $1
+`
+
+type GetUserByIdRow struct {
+	ID            uuid.UUID
+	CreatedAt     time.Time
+	UpdatedAt     time.Time
+	Email         string
+	EmailVerified bool
+}
+
+func (q *Queries) GetUserById(ctx context.Context, id uuid.UUID) (GetUserByIdRow, error) {
+	row := q.db.QueryRowContext(ctx, getUserById, id)
+	var i GetUserByIdRow
+	err := row.Scan(
+		&i.ID,
+		&i.CreatedAt,
+		&i.UpdatedAt,
+		&i.Email,
+		&i.EmailVerified,
+	)
+	return i, err
+}
+
+const getUserForAuth = `-- name: GetUserForAuth :one
+select id, created_at, updated_at, email, email_verified, password from users where email = $1
+`
+
+func (q *Queries) GetUserForAuth(ctx context.Context, email string) (User, error) {
+	row := q.db.QueryRowContext(ctx, getUserForAuth, email)
 	var i User
 	err := row.Scan(
 		&i.ID,
 		&i.CreatedAt,
 		&i.UpdatedAt,
 		&i.Email,
+		&i.EmailVerified,
 		&i.Password,
+	)
+	return i, err
+}
+
+const getUsers = `-- name: GetUsers :many
+select id, created_at, updated_at, email, email_verified from users
+`
+
+type GetUsersRow struct {
+	ID            uuid.UUID
+	CreatedAt     time.Time
+	UpdatedAt     time.Time
+	Email         string
+	EmailVerified bool
+}
+
+func (q *Queries) GetUsers(ctx context.Context) ([]GetUsersRow, error) {
+	rows, err := q.db.QueryContext(ctx, getUsers)
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+	var items []GetUsersRow
+	for rows.Next() {
+		var i GetUsersRow
+		if err := rows.Scan(
+			&i.ID,
+			&i.CreatedAt,
+			&i.UpdatedAt,
+			&i.Email,
+			&i.EmailVerified,
+		); err != nil {
+			return nil, err
+		}
+		items = append(items, i)
+	}
+	if err := rows.Close(); err != nil {
+		return nil, err
+	}
+	if err := rows.Err(); err != nil {
+		return nil, err
+	}
+	return items, nil
+}
+
+const updateUser = `-- name: UpdateUser :one
+update users set email =$2, email_verified = $3, password = $4, updated_at = NOW() where id = $1 returning id, created_at, updated_at, email, email_verified
+`
+
+type UpdateUserParams struct {
+	ID            uuid.UUID
+	Email         string
+	EmailVerified bool
+	Password      string
+}
+
+type UpdateUserRow struct {
+	ID            uuid.UUID
+	CreatedAt     time.Time
+	UpdatedAt     time.Time
+	Email         string
+	EmailVerified bool
+}
+
+func (q *Queries) UpdateUser(ctx context.Context, arg UpdateUserParams) (UpdateUserRow, error) {
+	row := q.db.QueryRowContext(ctx, updateUser,
+		arg.ID,
+		arg.Email,
+		arg.EmailVerified,
+		arg.Password,
+	)
+	var i UpdateUserRow
+	err := row.Scan(
+		&i.ID,
+		&i.CreatedAt,
+		&i.UpdatedAt,
+		&i.Email,
+		&i.EmailVerified,
 	)
 	return i, err
 }
