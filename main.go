@@ -21,7 +21,7 @@ func main() {
 	dbURL := os.Getenv("DB_URL")
 	dbConn, err := sql.Open("postgres", dbURL)
 	if err != nil {
-		log.Fatal("Error connecting to the database: %s", err)
+		log.Fatalf("Error connecting to the database: %s", err)
 	}
 
 	serverConfig := api.ServerConfig{
