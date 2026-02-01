@@ -15,18 +15,17 @@ services:
       POSTGRES_USER: "postgres"  
       POSTGRES_PASSWORD: "postgres"
       POSTGRES_DB: "test-db"
-
-  options: >-
-      --health-cmd "pg_isready -U postgres" 
-      --health-interval 10s 
-      --health-timeout 5s 
-      --health-retries 5
+    options: >-
+        --health-cmd "pg_isready -U postgres" 
+        --health-interval 10s 
+        --health-timeout 5s 
+        --health-retries 5
 
 jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      DB_URL: "postgres://postgres:postgres@postgres:5432/test-db"
+      DB_URL: "postgres://postgres:postgres@postgres:5432/test-db?sslmode=disable"
       JWT_SECRET: "test"
       STATIC_FILES_DIR: "./test/static"
 
@@ -49,8 +48,6 @@ jobs:
 
     - name: Build
       run: go build -v ./...
-
-    - name: Set up DB
 
     - name: Test
       run: go test -v ./...
