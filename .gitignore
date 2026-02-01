@@ -6,3 +6,4 @@ env
 .pgpass
 static/documents/
 certs/
+savefuel-backend
