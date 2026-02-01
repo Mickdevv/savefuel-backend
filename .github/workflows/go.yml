@@ -18,12 +18,13 @@ services:
     ports:
       - 2346:5432
 jobs:
-  env:
+  build:
+    runs-on: ubuntu-latest
+    env:
       DB_URL: "postgres://postgres:postgres@localhost:2346/test-db"
       JWT_SECRET: "test"
       STATIC_FILES_DIR: "./test/static"
-  build:
-    runs-on: ubuntu-latest
+
     steps:
     - uses: actions/checkout@v4
 
