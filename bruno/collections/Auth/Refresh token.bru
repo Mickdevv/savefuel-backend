@@ -25,6 +25,11 @@ vars:pre-request {
   access_token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiYTViYmY1ODItZGJiZS00MWI2LWE5MDctMjc1NzJkYWJiZjU2Iiwicm9sZSI6IlRlc3RSb2xlVmFsdWUiLCJpc3MiOiJzYXZlZnVlbCIsInN1YiI6ImE1YmJmNTgyLWRiYmUtNDFiNi1hOTA3LTI3NTcyZGFiYmY1NiIsImV4cCI6MTc2OTgwMDA3OSwiaWF0IjoxNzY5Nzk2NDc5fQ.z1TNhc73B3znvq9f6yb8U1lAuXT0_wj2R34XHIBwf5A
 }
 
+script:post-response {
+  bru.setVar("access_token", res.body.access_token)
+  bru.setVar("refresh_token", res.body.refresh_token)
+}
+
 settings {
   encodeUrl: true
   timeout: 0

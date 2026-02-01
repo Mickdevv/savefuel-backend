@@ -38,7 +38,6 @@ type RefreshToken struct {
 	Token     string
 	RevokedAt sql.NullTime
 	CreatedAt time.Time
-	UpdatedAt time.Time
 	ExpiresAt time.Time
 	UserID    uuid.UUID
 }

@@ -12,9 +12,8 @@ CREATE TABLE users(
 
 CREATE TABLE refresh_tokens(
   token TEXT primary key unique,
-  revoked_at timestamp,
-  created_at timestamp not null,
-  updated_at timestamp not null,
+  revoked_at timestamp default null,
+  created_at timestamp not null default NOW(),
   expires_at timestamp not null,
   user_id UUID not null,
   foreign key(user_id) references users(id) on delete cascade

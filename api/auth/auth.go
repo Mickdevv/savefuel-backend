@@ -2,6 +2,7 @@ package auth
 
 import (
 	"encoding/json"
+	"fmt"
 	"net/http"
 	"time"
 
@@ -106,6 +107,12 @@ func loginHandler(serverCfg *api.ServerConfig, w http.ResponseWriter, r *http.Re
 		return
 	}
 
+	refreshToken, err := auth.CreateRefreshToken(serverCfg, r, user.ID)
+	if err != nil {
+		api.RespondWithError(w, http.StatusInternalServerError, "Internal server error", err)
+		return
+	}
+
 	type response struct {
 		Token        string `json:"access_token"`
 		RefreshToken string `json:"refresh_token"`
@@ -113,20 +120,84 @@ func loginHandler(serverCfg *api.ServerConfig, w http.ResponseWriter, r *http.Re
 
 	api.RespondWithJSON(w, http.StatusOK, response{
 		Token:        token,
-		RefreshToken: "",
+		RefreshToken: refreshToken,
 	})
 
 }
 
 func refreshTokenHandler(serverCfg *api.ServerConfig, w http.ResponseWriter, r *http.Request) {
+
+	// Verify user
+	// Verify refresh token validity
+	// Generate new tokens
+	// Revoke old tokens
+	// Return new tokens
+
 	type params struct {
 		RefreshToken string `json:"refresh_token"`
 	}
+
 	claims, ok := r.Context().Value("claims").(auth.Claims)
 	if !ok {
-		http.Error(w, "unauthorized", http.StatusUnauthorized)
+		http.Error(w, "Unauthorized", http.StatusUnauthorized)
 		return
 	}
 
-	api.RespondWithJSON(w, http.StatusOK, claims)
+	defer r.Body.Close()
+	decoder := json.NewDecoder(r.Body)
+	parameters := params{}
+
+	err := decoder.Decode(&parameters)
+	if err != nil {
+		api.RespondWithError(w, http.StatusBadRequest, "Payload error", err)
+		return
+	}
+
+	oldRefreshToken, err := serverCfg.DB.GetRefreshToken(r.Context(), parameters.RefreshToken)
+	if err != nil {
+		api.RespondWithError(w, http.StatusNotFound, "Invalid refresh token", err)
+		return
+	}
+
+	userId, err := uuid.Parse(claims.UserId)
+	if err != nil {
+		api.RespondWithError(w, http.StatusBadRequest, "Invalid user id", err)
+		return
+	}
+
+	if userId != oldRefreshToken.UserID {
+		api.RespondWithError(w, http.StatusUnauthorized, "Unauthorized", fmt.Errorf("User %v tried to use refresh token for user %v", userId, oldRefreshToken.UserID))
+		return
+	}
+
+	if oldRefreshToken.RevokedAt.Valid || oldRefreshToken.ExpiresAt.Unix() < time.Now().Unix() {
+		api.RespondWithError(w, http.StatusBadRequest, "Invalid refresh token", nil)
+		return
+	}
+
+	token, err := auth.CreateJWT(serverCfg.JWT_SECRET, userId)
+	if err != nil {
+		api.RespondWithError(w, http.StatusInternalServerError, "Internal server error", err)
+		return
+	}
+
+	newRefreshToken, err := auth.CreateRefreshToken(serverCfg, r, userId)
+	if err != nil {
+		api.RespondWithError(w, http.StatusInternalServerError, "Internal server error", err)
+		return
+	}
+
+	err = serverCfg.DB.RevokeRefreshToken(r.Context(), oldRefreshToken.Token)
+	if err != nil {
+		api.RespondWithError(w, http.StatusInternalServerError, "Internal server error", err)
+		return
+	}
+
+	type response struct {
+		AccessToken  string `json:"access_token"`
+		RefreshToken string `json:"refresh_token"`
+	}
+
+	api.RespondWithJSON(w, http.StatusOK, response{RefreshToken: newRefreshToken, AccessToken: token})
+
 }

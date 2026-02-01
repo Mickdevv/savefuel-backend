@@ -1,11 +1,16 @@
 package auth
 
 import (
+	"crypto/rand"
+	"encoding/hex"
 	"fmt"
+	"net/http"
 	"net/mail"
 	"strings"
 	"time"
 
+	"github.com/Mickdevv/savefuel-backend/api"
+	"github.com/Mickdevv/savefuel-backend/internal/database"
 	"github.com/alexedwards/argon2id"
 	"github.com/golang-jwt/jwt/v5"
 	"github.com/google/uuid"
@@ -36,6 +41,29 @@ func CreateJWT(tokenSecret string, userId uuid.UUID) (string, error) {
 	}
 
 	return s, nil
+}
+
+func CreateRefreshToken(serverCfg *api.ServerConfig, r *http.Request, userId uuid.UUID) (string, error) {
+
+	key := make([]byte, 32)
+	_, err := rand.Read(key)
+	if err != nil {
+		return "", err
+	}
+
+	token := hex.EncodeToString(key)
+	refreshTokenLifetime := time.Hour * 24 * 30
+
+	refreshTokenFromDatabase, err := serverCfg.DB.CreateRefreshToken(r.Context(), database.CreateRefreshTokenParams{
+		UserID:    userId,
+		ExpiresAt: time.Now().Add(refreshTokenLifetime),
+		Token:     token,
+	})
+	if err != nil {
+		return "", err
+	}
+
+	return refreshTokenFromDatabase.Token, nil
 }
 
 func ValidateJWT(tokenString string, tokenSecret string) (Claims, error) {
