@@ -1,66 +1,21 @@
-name: Go
+steps:
+  # Downloads a copy of the code in your repository before running CI tests
+  - name: Check out repository code
+    uses: actions/checkout@v5
 
-on:
-  push:
-    branches: ["main"]
-  pull_request:
-    branches: ["main"]
+  # Performs a clean installation of all dependencies in the `package.json` file
+  # For more information, see https://docs.npmjs.com/cli/ci.html
+  - name: Install dependencies
+    run: npm ci
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
-
-    services:
-      postgres:
-        image: postgres:17
-        env:
-          POSTGRES_USER: "postgres"
-          POSTGRES_PASSWORD: "postgres"
-          POSTGRES_DB: "test-db"
-        options: >-
-          --health-cmd "pg_isready -U postgres"
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 5
+  - name: Connect to PostgreSQL
+    # Runs a script that creates a PostgreSQL table, populates
+    # the table with data, and then retrieves the data
+    run: node client.js
+    # Environment variables used by the `client.js` script to create
+    # a new PostgreSQL table.
     env:
-      DB_URL: "postgres://postgres:postgres@postgres:5432/test-db?sslmode=disable"
-      JWT_SECRET: "test"
-      STATIC_FILES_DIR: "./test/static"
-
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Install Postgres client
-        run: sudo apt-get update && sudo apt-get install -y postgresql-client
-
-      - name: Wait for Postgres
-        run: |
-          for i in {1..10}; do
-            if psql "$DB_URL" -c '\l'; then
-              echo "Postgres is up!"
-              break
-            else
-              echo "Waiting for Postgres..."
-              sleep 2
-            fi
-          done
-
-      - name: Test DB connection
-        run: psql "$DB_URL" -c '\l'
-
-      - name: Set up Go
-        uses: actions/setup-go@v4
-        with:
-          go-version: "1.25"
-
-      - name: Install goose for migrations
-        run: go install github.com/pressly/goose/v3/cmd/goose@latest
-
-      - name: Run DB migrations
-        run: goose -dir sql/schema postgres "$DB_URL" up
-
-      - name: Build
-        run: go build -v ./...
-
-      - name: Test
-        run: go test -v ./...
+      # The hostname used to communicate with the PostgreSQL service container
+      POSTGRES_HOST: localhost
+      # The default PostgreSQL port
+      POSTGRES_PORT: 5432
