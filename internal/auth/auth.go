@@ -3,6 +3,7 @@ package auth
 import (
 	"crypto/rand"
 	"encoding/hex"
+	"errors"
 	"fmt"
 	"net/http"
 	"net/mail"
@@ -121,7 +122,7 @@ func ValidatePassword(password string) error {
 	}
 
 	if len(validationErrors) > 0 {
-		return fmt.Errorf(strings.Join(validationErrors, ", "))
+		return errors.New(strings.Join(validationErrors, ", "))
 	}
 	return nil
 }

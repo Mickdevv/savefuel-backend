@@ -7,3 +7,4 @@ env
 static/documents/
 certs/
 savefuel-backend
+node_modules
