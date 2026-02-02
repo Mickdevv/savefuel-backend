@@ -32,7 +32,19 @@ jobs:
 
       - name: Install Postgres client
         run: sudo apt-get update && sudo apt-get install -y postgresql-client
-      
+
+      - name: Wait for Postgres
+        run: |
+          for i in {1..10}; do
+            if psql "$DB_URL" -c '\l'; then
+              echo "Postgres is up!"
+              break
+            else
+              echo "Waiting for Postgres..."
+              sleep 2
+            fi
+          done
+
       - name: Test DB connection
         run: psql "$DB_URL" -c '\l'
 
@@ -43,9 +55,9 @@ jobs:
 
       - name: Install goose for migrations
         run: go install github.com/pressly/goose/v3/cmd/goose@latest
-        
+
       - name: Run DB migrations
-        run: goose --dir sql/schema/ postgres "$DB_URL" up
+        run: goose -dir sql/schema postgres "$DB_URL" up
 
       - name: Build
         run: go build -v ./...
