@@ -6,12 +6,26 @@ meta {
 
 post {
   url: {{base_url}}/document_categories
-  body: none
-  auth: inherit
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiYTc0NTg4NDMtNjI2Yy00Mzg3LThkMmEtNmQwN2NhYWViZmIxIiwicm9sZSI6IlRlc3RSb2xlVmFsdWUiLCJpc3MiOiJzYXZlZnVlbCIsInN1YiI6ImE3NDU4ODQzLTYyNmMtNDM4Ny04ZDJhLTZkMDdjYWFlYmZiMSIsImV4cCI6MTc3MDA2NTM0OSwiaWF0IjoxNzcwMDYxNzQ5fQ.H3yoUVN4vR6g6bvgxL5IaIGb1dM7c-dFuPEkxXl3yr8
+}
+
+body:json {
+  {
+    "name":"{{timestamp}}"
+  }
+}
+
+script:pre-request {
+  bru.setVar("timestamp", Date.now())
 }
 
 script:post-response {
-  bru.setVar("category_id", res.body.data.id)
+  bru.setVar("category_id", res.body.id)
 }
 
 settings {
