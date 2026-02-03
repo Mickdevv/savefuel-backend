@@ -7,7 +7,7 @@ import (
 	"time"
 
 	"github.com/Mickdevv/savefuel-backend/api"
-	"github.com/Mickdevv/savefuel-backend/internal/auth"
+	"github.com/Mickdevv/savefuel-backend/internal/auth_helpers"
 	"github.com/Mickdevv/savefuel-backend/internal/database"
 	"github.com/google/uuid"
 )
@@ -27,7 +27,7 @@ func registerHandler(serverCfg *api.ServerConfig, w http.ResponseWriter, r *http
 		return
 	}
 
-	if !auth.ValidateEmail(params.Email) {
+	if !auth_helpers.ValidateEmail(params.Email) {
 		api.RespondWithError(w, http.StatusBadRequest, "Invalid email address", nil)
 		return
 	}
@@ -37,12 +37,12 @@ func registerHandler(serverCfg *api.ServerConfig, w http.ResponseWriter, r *http
 		return
 	}
 
-	if err := auth.ValidatePassword(params.Password1); err != nil {
+	if err := auth_helpers.ValidatePassword(params.Password1); err != nil {
 		api.RespondWithError(w, http.StatusBadRequest, "Invalid password", err)
 		return
 	}
 
-	hashed_password, err := auth.HashPassword(params.Password1)
+	hashed_password, err := auth_helpers.HashPassword(params.Password1)
 	if err != nil {
 		api.RespondWithError(w, http.StatusInternalServerError, "Something went wrong", err)
 		return
@@ -53,6 +53,7 @@ func registerHandler(serverCfg *api.ServerConfig, w http.ResponseWriter, r *http
 	})
 	if err != nil {
 		api.RespondWithError(w, http.StatusInternalServerError, "Error creating user", err)
+		return
 	}
 
 	type user struct {
@@ -95,19 +96,19 @@ func loginHandler(serverCfg *api.ServerConfig, w http.ResponseWriter, r *http.Re
 		return
 	}
 
-	ok, err := auth.CheckPassword(params.Password, user.Password)
+	ok, err := auth_helpers.CheckPassword(params.Password, user.Password)
 	if err != nil || !ok {
 		api.RespondWithError(w, http.StatusUnauthorized, "Invalid credentials", err)
 		return
 	}
 
-	token, err := auth.CreateJWT(serverCfg.JWT_SECRET, user.ID)
+	token, err := auth_helpers.CreateJWT(serverCfg.JWT_SECRET, user.ID)
 	if err != nil {
 		api.RespondWithError(w, http.StatusUnauthorized, "Invalid credentials", err)
 		return
 	}
 
-	refreshToken, err := auth.CreateRefreshToken(serverCfg, r, user.ID)
+	refreshToken, err := auth_helpers.CreateRefreshToken(serverCfg, r, user.ID)
 	if err != nil {
 		api.RespondWithError(w, http.StatusInternalServerError, "Internal server error", err)
 		return
@@ -127,19 +128,13 @@ func loginHandler(serverCfg *api.ServerConfig, w http.ResponseWriter, r *http.Re
 
 func refreshTokenHandler(serverCfg *api.ServerConfig, w http.ResponseWriter, r *http.Request) {
 
-	// Verify user
-	// Verify refresh token validity
-	// Generate new tokens
-	// Revoke old tokens
-	// Return new tokens
-
 	type params struct {
 		RefreshToken string `json:"refresh_token"`
 	}
 
-	claims, ok := r.Context().Value("claims").(auth.Claims)
+	claims, ok := r.Context().Value("claims").(auth_helpers.Claims)
 	if !ok {
-		http.Error(w, "Unauthorized", http.StatusUnauthorized)
+		http.Error(w, "Unauth_helpers.rized", http.StatusUnauthorized)
 		return
 	}
 
@@ -175,13 +170,13 @@ func refreshTokenHandler(serverCfg *api.ServerConfig, w http.ResponseWriter, r *
 		return
 	}
 
-	token, err := auth.CreateJWT(serverCfg.JWT_SECRET, userId)
+	token, err := auth_helpers.CreateJWT(serverCfg.JWT_SECRET, userId)
 	if err != nil {
 		api.RespondWithError(w, http.StatusInternalServerError, "Internal server error", err)
 		return
 	}
 
-	newRefreshToken, err := auth.CreateRefreshToken(serverCfg, r, userId)
+	newRefreshToken, err := auth_helpers.CreateRefreshToken(serverCfg, r, userId)
 	if err != nil {
 		api.RespondWithError(w, http.StatusInternalServerError, "Internal server error", err)
 		return

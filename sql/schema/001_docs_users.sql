@@ -6,8 +6,9 @@ CREATE TABLE users(
 	created_at timestamp not null,
 	updated_at timestamp not null,
 	email text not null unique,
-  email_verified bool not null default false,
-	password TEXT not null default 'unset'
+	email_verified bool not null default false,
+	password TEXT not null default 'unset',
+	active bool not null default true
 );
 
 CREATE TABLE refresh_tokens(

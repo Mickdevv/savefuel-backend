@@ -3,6 +3,7 @@ package test
 import (
 	"database/sql"
 	"log"
+	"net/url"
 	"os"
 
 	"github.com/Mickdevv/savefuel-backend/api"
@@ -13,10 +14,24 @@ import (
 
 func TestServerCFG() api.ServerConfig {
 
-	godotenv.Load()
+	godotenv.Load("../../.env")
 
 	dbURL := os.Getenv("DB_URL")
-	dbConn, err := sql.Open("postgres", dbURL)
+
+	if dbURL == "" {
+		log.Fatal("Test DB url is empty")
+	}
+
+	u, err := url.Parse(dbURL)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	q := u.Query()
+	q.Set("sslmode", "disable")
+	u.RawQuery = q.Encode()
+
+	dbConn, err := sql.Open("postgres", u.String())
 	if err != nil {
 		log.Fatalf("Error connecting to the database: %s", err)
 	}
