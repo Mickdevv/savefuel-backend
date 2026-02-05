@@ -12,7 +12,7 @@ import (
 	"github.com/google/uuid"
 )
 
-func registerHandler(serverCfg *api.ServerConfig, w http.ResponseWriter, r *http.Request) {
+func RegisterHandler(serverCfg *api.ServerConfig, w http.ResponseWriter, r *http.Request) {
 	type parameters struct {
 		Email     string `json:"email"`
 		Password1 string `json:"password_1"`
@@ -75,7 +75,7 @@ func registerHandler(serverCfg *api.ServerConfig, w http.ResponseWriter, r *http
 
 }
 
-func loginHandler(serverCfg *api.ServerConfig, w http.ResponseWriter, r *http.Request) {
+func LoginHandler(serverCfg *api.ServerConfig, w http.ResponseWriter, r *http.Request) {
 	type parameters struct {
 		Email    string `json:"email"`
 		Password string `json:"password"`
@@ -126,7 +126,7 @@ func loginHandler(serverCfg *api.ServerConfig, w http.ResponseWriter, r *http.Re
 
 }
 
-func refreshTokenHandler(serverCfg *api.ServerConfig, w http.ResponseWriter, r *http.Request) {
+func RefreshTokenHandler(serverCfg *api.ServerConfig, w http.ResponseWriter, r *http.Request) {
 
 	type params struct {
 		RefreshToken string `json:"refresh_token"`
