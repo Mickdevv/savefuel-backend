@@ -17,7 +17,7 @@ import (
 
 func RegisterAndLogin(t *testing.T, serverCfg *api.ServerConfig) UserWithTokens {
 
-	timestamp := time.Now().Unix()
+	timestamp := time.Now().UnixNano()
 	user_email := fmt.Sprintf("test-%d@email.com", timestamp)
 	fmt.Println(user_email)
 	user_password := "test12345"
