@@ -49,4 +49,6 @@ type User struct {
 	Email         string
 	EmailVerified bool
 	Password      string
+	Active        bool
+	LoginAttempts int32
 }

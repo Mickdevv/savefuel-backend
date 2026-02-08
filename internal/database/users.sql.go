@@ -61,11 +61,12 @@ func (q *Queries) Deleteuser(ctx context.Context, id uuid.UUID) error {
 }
 
 const getUserByEmail = `-- name: GetUserByEmail :one
-select id, created_at, updated_at, email, email_verified from users where email = $1
+select id, login_attempts, created_at, updated_at, email, email_verified from users where email = $1
 `
 
 type GetUserByEmailRow struct {
 	ID            uuid.UUID
+	LoginAttempts int32
 	CreatedAt     time.Time
 	UpdatedAt     time.Time
 	Email         string
@@ -77,6 +78,7 @@ func (q *Queries) GetUserByEmail(ctx context.Context, email string) (GetUserByEm
 	var i GetUserByEmailRow
 	err := row.Scan(
 		&i.ID,
+		&i.LoginAttempts,
 		&i.CreatedAt,
 		&i.UpdatedAt,
 		&i.Email,
@@ -86,11 +88,12 @@ func (q *Queries) GetUserByEmail(ctx context.Context, email string) (GetUserByEm
 }
 
 const getUserById = `-- name: GetUserById :one
-select id, created_at, updated_at, email, email_verified from users where id = $1
+select id, login_attempts, created_at, updated_at, email, email_verified from users where id = $1
 `
 
 type GetUserByIdRow struct {
 	ID            uuid.UUID
+	LoginAttempts int32
 	CreatedAt     time.Time
 	UpdatedAt     time.Time
 	Email         string
@@ -102,6 +105,7 @@ func (q *Queries) GetUserById(ctx context.Context, id uuid.UUID) (GetUserByIdRow
 	var i GetUserByIdRow
 	err := row.Scan(
 		&i.ID,
+		&i.LoginAttempts,
 		&i.CreatedAt,
 		&i.UpdatedAt,
 		&i.Email,
@@ -111,14 +115,25 @@ func (q *Queries) GetUserById(ctx context.Context, id uuid.UUID) (GetUserByIdRow
 }
 
 const getUserForAuth = `-- name: GetUserForAuth :one
-select id, created_at, updated_at, email, email_verified, password from users where email = $1
+select id, login_attempts, created_at, updated_at, email, email_verified, password from users where email = $1
 `
 
-func (q *Queries) GetUserForAuth(ctx context.Context, email string) (User, error) {
+type GetUserForAuthRow struct {
+	ID            uuid.UUID
+	LoginAttempts int32
+	CreatedAt     time.Time
+	UpdatedAt     time.Time
+	Email         string
+	EmailVerified bool
+	Password      string
+}
+
+func (q *Queries) GetUserForAuth(ctx context.Context, email string) (GetUserForAuthRow, error) {
 	row := q.db.QueryRowContext(ctx, getUserForAuth, email)
-	var i User
+	var i GetUserForAuthRow
 	err := row.Scan(
 		&i.ID,
+		&i.LoginAttempts,
 		&i.CreatedAt,
 		&i.UpdatedAt,
 		&i.Email,
@@ -129,11 +144,12 @@ func (q *Queries) GetUserForAuth(ctx context.Context, email string) (User, error
 }
 
 const getUsers = `-- name: GetUsers :many
-select id, created_at, updated_at, email, email_verified from users
+select id, login_attempts, created_at, updated_at, email, email_verified from users
 `
 
 type GetUsersRow struct {
 	ID            uuid.UUID
+	LoginAttempts int32
 	CreatedAt     time.Time
 	UpdatedAt     time.Time
 	Email         string
@@ -151,6 +167,7 @@ func (q *Queries) GetUsers(ctx context.Context) ([]GetUsersRow, error) {
 		var i GetUsersRow
 		if err := rows.Scan(
 			&i.ID,
+			&i.LoginAttempts,
 			&i.CreatedAt,
 			&i.UpdatedAt,
 			&i.Email,
@@ -169,8 +186,33 @@ func (q *Queries) GetUsers(ctx context.Context) ([]GetUsersRow, error) {
 	return items, nil
 }
 
+const incrementLoginAttemptCount = `-- name: IncrementLoginAttemptCount :one
+update users set login_attempts = login_attempts +1 where id = $1 returning id, login_attempts
+`
+
+type IncrementLoginAttemptCountRow struct {
+	ID            uuid.UUID
+	LoginAttempts int32
+}
+
+func (q *Queries) IncrementLoginAttemptCount(ctx context.Context, id uuid.UUID) (IncrementLoginAttemptCountRow, error) {
+	row := q.db.QueryRowContext(ctx, incrementLoginAttemptCount, id)
+	var i IncrementLoginAttemptCountRow
+	err := row.Scan(&i.ID, &i.LoginAttempts)
+	return i, err
+}
+
+const resetLoginAttemptCount = `-- name: ResetLoginAttemptCount :exec
+update users set login_attempts = 0 where id = $1
+`
+
+func (q *Queries) ResetLoginAttemptCount(ctx context.Context, id uuid.UUID) error {
+	_, err := q.db.ExecContext(ctx, resetLoginAttemptCount, id)
+	return err
+}
+
 const updateUser = `-- name: UpdateUser :one
-update users set email =$2, email_verified = $3, password = $4, updated_at = NOW() where id = $1 returning id, created_at, updated_at, email, email_verified
+update users set email =$2, email_verified = $3, password = $4, updated_at = NOW() where id = $1 returning id, login_attempts, created_at, updated_at, email, email_verified
 `
 
 type UpdateUserParams struct {
@@ -182,6 +224,7 @@ type UpdateUserParams struct {
 
 type UpdateUserRow struct {
 	ID            uuid.UUID
+	LoginAttempts int32
 	CreatedAt     time.Time
 	UpdatedAt     time.Time
 	Email         string
@@ -198,6 +241,7 @@ func (q *Queries) UpdateUser(ctx context.Context, arg UpdateUserParams) (UpdateU
 	var i UpdateUserRow
 	err := row.Scan(
 		&i.ID,
+		&i.LoginAttempts,
 		&i.CreatedAt,
 		&i.UpdatedAt,
 		&i.Email,

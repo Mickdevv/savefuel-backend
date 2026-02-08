@@ -12,19 +12,25 @@ values (
 
 
 -- name: GetUserForAuth :one 
-select id, created_at, updated_at, email, email_verified, password from users where email = $1;
+select id, login_attempts, created_at, updated_at, email, email_verified, password from users where email = $1;
 
 -- name: GetUserByEmail :one 
-select id, created_at, updated_at, email, email_verified from users where email = $1;
+select id, login_attempts, created_at, updated_at, email, email_verified from users where email = $1;
 
 -- name: GetUserById :one 
-select id, created_at, updated_at, email, email_verified from users where id = $1;
+select id, login_attempts, created_at, updated_at, email, email_verified from users where id = $1;
 
 -- name: GetUsers :many
-select id, created_at, updated_at, email, email_verified from users; 
+select id, login_attempts, created_at, updated_at, email, email_verified from users; 
 
 -- name: UpdateUser :one
-update users set email =$2, email_verified = $3, password = $4, updated_at = NOW() where id = $1 returning id, created_at, updated_at, email, email_verified;
+update users set email =$2, email_verified = $3, password = $4, updated_at = NOW() where id = $1 returning id, login_attempts, created_at, updated_at, email, email_verified;
 
 -- name: Deleteuser :exec
 delete from users where id = $1;
+
+-- name: IncrementLoginAttemptCount :one
+update users set login_attempts = login_attempts +1 where id = $1 returning id, login_attempts;
+
+-- name: ResetLoginAttemptCount :exec
+update users set login_attempts = 0 where id = $1;

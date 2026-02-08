@@ -98,12 +98,20 @@ func LoginHandler(serverCfg *api.ServerConfig, w http.ResponseWriter, r *http.Re
 
 	ok, err := auth_helpers.CheckPassword(params.Password, user.Password)
 	if err != nil || !ok {
+		serverCfg.DB.IncrementLoginAttemptCount(r.Context(), user.ID)
 		api.RespondWithError(w, http.StatusUnauthorized, "Invalid credentials", err)
+		return
+	}
+
+	if user.LoginAttempts >= 10 {
+		serverCfg.DB.ResetLoginAttemptCount(r.Context(), user.ID)
+		api.RespondWithError(w, http.StatusUnauthorized, "Too many login attempts. Please contact your administrator.", nil)
 		return
 	}
 
 	token, err := auth_helpers.CreateJWT(serverCfg.JWT_SECRET, user.ID)
 	if err != nil {
+		serverCfg.DB.IncrementLoginAttemptCount(r.Context(), user.ID)
 		api.RespondWithError(w, http.StatusUnauthorized, "Invalid credentials", err)
 		return
 	}
@@ -119,11 +127,11 @@ func LoginHandler(serverCfg *api.ServerConfig, w http.ResponseWriter, r *http.Re
 		RefreshToken string `json:"refresh_token"`
 	}
 
+	serverCfg.DB.ResetLoginAttemptCount(r.Context(), user.ID)
 	api.RespondWithJSON(w, http.StatusOK, response{
 		Token:        token,
 		RefreshToken: refreshToken,
 	})
-
 }
 
 func RefreshTokenHandler(serverCfg *api.ServerConfig, w http.ResponseWriter, r *http.Request) {
