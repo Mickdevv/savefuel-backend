@@ -19,7 +19,6 @@ func RegisterAndLogin(t *testing.T, serverCfg *api.ServerConfig) UserWithTokens 
 
 	timestamp := time.Now().UnixNano()
 	user_email := fmt.Sprintf("test-%d@email.com", timestamp)
-	fmt.Println(user_email)
 	user_password := "test12345"
 
 	wRegister := httptest.NewRecorder()
@@ -33,8 +32,6 @@ func RegisterAndLogin(t *testing.T, serverCfg *api.ServerConfig) UserWithTokens 
 		t.Fatal(err)
 	}
 
-	fmt.Println(created_user)
-
 	wLogin := httptest.NewRecorder()
 	body_login, _ := json.Marshal(LoginPayload{Email: created_user.Email, Password: user_password})
 	req_login := httptest.NewRequest(http.MethodPost, "/login", bytes.NewReader(body_login))
@@ -45,8 +42,6 @@ func RegisterAndLogin(t *testing.T, serverCfg *api.ServerConfig) UserWithTokens 
 	if err != nil {
 		t.Fatal(err)
 	}
-
-	fmt.Println(tokens)
 
 	_, err = auth_helpers.ValidateJWT(tokens.AccessToken, serverCfg.JWT_SECRET)
 	if err != nil {

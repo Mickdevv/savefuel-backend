@@ -3,7 +3,6 @@ package auth
 import (
 	"bytes"
 	"encoding/json"
-	"fmt"
 	"net/http"
 	"net/http/httptest"
 	"testing"
@@ -13,7 +12,6 @@ import (
 )
 
 func LoginAttemptLimit(t *testing.T, user UserWithTokens, serverCfg *api.ServerConfig) {
-	fmt.Println("LoginAttemptLimit")
 	for i := range 10 {
 		wLogin := httptest.NewRecorder()
 		body_login, _ := json.Marshal(LoginPayload{Email: user.Email, Password: "test1234a"})
