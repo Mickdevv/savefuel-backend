@@ -28,5 +28,6 @@ func DeleteDocumentCategoryTest(t *testing.T, serverCfg api.ServerConfig, user a
 func TestDocumentCategories(t *testing.T) {
 	serverCfg := testUtils.TestServerCFG()
 
-	_ = auth.RegisterAndLogin(t, &serverCfg)
+	user := auth.RegisterAndLogin(t, &serverCfg)
+	auth.CleanupTestUser(user.ID, &serverCfg)
 }
