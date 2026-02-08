@@ -8,9 +8,9 @@ import (
 )
 
 func RegisterRoutes(mux *http.ServeMux, serverCfg *api.ServerConfig) {
-	mux.HandleFunc("GET /document_categories", getDocuments(serverCfg))
-	mux.HandleFunc("GET /document_categories/{id}", getDocumentById(serverCfg))
-	mux.HandleFunc("POST /document_categories", auth_helpers.AuthMiddleware(serverCfg, createDocumentCategory(serverCfg)))
-	mux.HandleFunc("PUT /document_categories/{id}", auth_helpers.AuthMiddleware(serverCfg, updateDocumentCategory(serverCfg)))
-	mux.HandleFunc("DELETE /document_categories/{id}", auth_helpers.AuthMiddleware(serverCfg, deleteDocumentCategory(serverCfg)))
+	mux.HandleFunc("GET /document_categories", GetDocumentCategories(serverCfg))
+	mux.HandleFunc("GET /document_categories/{id}", GetDocumentCategoryById(serverCfg))
+	mux.HandleFunc("POST /document_categories", auth_helpers.AuthMiddleware(serverCfg, CreateDocumentCategory(serverCfg)))
+	mux.HandleFunc("PUT /document_categories/{id}", auth_helpers.AuthMiddleware(serverCfg, UpdateDocumentCategory(serverCfg)))
+	mux.HandleFunc("DELETE /document_categories/{id}", auth_helpers.AuthMiddleware(serverCfg, DeleteDocumentCategory(serverCfg)))
 }

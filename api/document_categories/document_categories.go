@@ -10,7 +10,7 @@ import (
 	"github.com/google/uuid"
 )
 
-func getDocuments(serverCfg *api.ServerConfig) http.HandlerFunc {
+func GetDocumentCategories(serverCfg *api.ServerConfig) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		doc_cats, err := serverCfg.DB.GetDocumentCategories(r.Context())
 		if err != nil {
@@ -41,7 +41,7 @@ func getDocuments(serverCfg *api.ServerConfig) http.HandlerFunc {
 	}
 
 }
-func getDocumentById(serverCfg *api.ServerConfig) http.HandlerFunc {
+func GetDocumentCategoryById(serverCfg *api.ServerConfig) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		idStr := r.PathValue("id")
 		id, err := uuid.Parse(idStr)
@@ -75,7 +75,7 @@ func getDocumentById(serverCfg *api.ServerConfig) http.HandlerFunc {
 
 }
 
-func deleteDocumentCategory(serverCfg *api.ServerConfig) http.HandlerFunc {
+func DeleteDocumentCategory(serverCfg *api.ServerConfig) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		idStr := r.PathValue("id")
 		id, err := uuid.Parse(idStr)
@@ -95,7 +95,7 @@ func deleteDocumentCategory(serverCfg *api.ServerConfig) http.HandlerFunc {
 	}
 }
 
-func updateDocumentCategory(serverCfg *api.ServerConfig) http.HandlerFunc {
+func UpdateDocumentCategory(serverCfg *api.ServerConfig) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 
 		idStr := r.PathValue("id")
@@ -144,7 +144,7 @@ func updateDocumentCategory(serverCfg *api.ServerConfig) http.HandlerFunc {
 	}
 }
 
-func createDocumentCategory(serverCfg *api.ServerConfig) http.HandlerFunc {
+func CreateDocumentCategory(serverCfg *api.ServerConfig) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 
 		type parameters struct {
