@@ -8,41 +8,17 @@ import (
 	"path"
 	"path/filepath"
 	"strings"
-	"time"
 
 	"github.com/Mickdevv/savefuel-backend/api"
 	"github.com/Mickdevv/savefuel-backend/internal/database"
 	"github.com/google/uuid"
 )
 
-type document struct {
-	ID          uuid.UUID `json:"id"`
-	CreatedAt   time.Time `json:"created_at"`
-	Title       string    `json:"title"`
-	Filename    string    `json:"filename"`
-	Locale      string    `json:"locale"`
-	Description string    `json:"description"`
-	Priority    int32     `json:"priority"`
-	Path        string    `json:"path"`
-	Filetype    string    `json:"filetype"`
-	Active      bool      `json:"active"`
-	CategoryID  uuid.UUID `json:"category_id"`
-}
-
 func updateDocument(serverCfg *api.ServerConfig, w http.ResponseWriter, r *http.Request) {
 	defer r.Body.Close()
 
-	type parameters struct {
-		Title       string    `json:"title"`
-		Locale      string    `json:"locale"`
-		Description string    `json:"description"`
-		Priority    int32     `json:"priority"`
-		Active      bool      `json:"active"`
-		CategoryID  uuid.UUID `json:"category_id"`
-	}
-
 	decoder := json.NewDecoder(r.Body)
-	params := parameters{}
+	params := DocumentPayload{}
 	err := decoder.Decode(&params)
 	if err != nil {
 		api.RespondWithError(w, http.StatusBadRequest, "Could not decode json payload", err)
@@ -70,10 +46,10 @@ func updateDocument(serverCfg *api.ServerConfig, w http.ResponseWriter, r *http.
 	}
 
 	type response struct {
-		Data document `json:"data"`
+		Data Document `json:"data"`
 	}
 
-	res := response{Data: document{
+	res := response{Data: Document{
 		ID:          d.ID,
 		CreatedAt:   d.CreatedAt,
 		Title:       d.Title,
@@ -125,7 +101,7 @@ func deleteDocument(serverCfg *api.ServerConfig, w http.ResponseWriter, r *http.
 
 func getDocumentById(serverCfg *api.ServerConfig, w http.ResponseWriter, r *http.Request) {
 	type response struct {
-		Data document `json:"data"`
+		Data Document `json:"data"`
 	}
 
 	idStr := r.PathValue("id")
@@ -141,7 +117,7 @@ func getDocumentById(serverCfg *api.ServerConfig, w http.ResponseWriter, r *http
 		return
 	}
 
-	res := response{Data: document{
+	res := response{Data: Document{
 		ID:          d.ID,
 		CreatedAt:   d.CreatedAt,
 		Title:       d.Title,
@@ -158,9 +134,9 @@ func getDocumentById(serverCfg *api.ServerConfig, w http.ResponseWriter, r *http
 
 func getDocuments(serverCfg *api.ServerConfig, w http.ResponseWriter, r *http.Request) {
 	type response struct {
-		Data []document `json:"data"`
+		Data []Document `json:"data"`
 	}
-	res := response{Data: []document{}}
+	res := response{Data: []Document{}}
 
 	documents, err := serverCfg.DB.GetDocuments(r.Context())
 	if err != nil {
@@ -169,7 +145,7 @@ func getDocuments(serverCfg *api.ServerConfig, w http.ResponseWriter, r *http.Re
 	}
 
 	for _, d := range documents {
-		res.Data = append(res.Data, document{
+		res.Data = append(res.Data, Document{
 			ID:          d.ID,
 			CreatedAt:   d.CreatedAt,
 			Title:       d.Title,
@@ -189,18 +165,9 @@ func getDocuments(serverCfg *api.ServerConfig, w http.ResponseWriter, r *http.Re
 
 func uploadDocument(serverCfg *api.ServerConfig, w http.ResponseWriter, r *http.Request) {
 
-	type parameters struct {
-		Title       string    `json:"title"`
-		Filename    string    `json:"filename"`
-		Locale      string    `json:"locale"`
-		Description string    `json:"description"`
-		Priority    int32     `json:"priority"`
-		CategoryID  uuid.UUID `json:"category_id"`
-	}
-
 	metadata := r.FormValue("metadata")
 
-	params := parameters{}
+	params := UploadDocumentPayload{}
 	err := json.Unmarshal([]byte(metadata), &params)
 	if err != nil {
 		api.RespondWithError(w, http.StatusBadRequest, "Error decoding metadata", err)
@@ -257,7 +224,7 @@ func uploadDocument(serverCfg *api.ServerConfig, w http.ResponseWriter, r *http.
 
 	type response struct {
 		Message string   `json:"message"`
-		Data    document `json:"data"`
+		Data    Document `json:"data"`
 	}
 	var res response
 

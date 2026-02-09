@@ -11,41 +11,46 @@ import (
 	"github.com/Mickdevv/savefuel-backend/internal/testUtils"
 )
 
-func LoginAttemptLimit(t *testing.T, user UserWithTokens, serverCfg *api.ServerConfig) {
+func LoginAttemptLimit(t *testing.T, mux *http.ServeMux, user UserWithTokens, serverCfg *api.ServerConfig) {
 	for i := range 10 {
-		wLogin := httptest.NewRecorder()
-		body_login, _ := json.Marshal(LoginPayload{Email: user.Email, Password: "test1234a"})
-		req_login := httptest.NewRequest(http.MethodPost, "/login", bytes.NewReader(body_login))
-		LoginHandler(serverCfg, wLogin, req_login)
+		w := httptest.NewRecorder()
+		body, _ := json.Marshal(LoginPayload{Email: user.Email, Password: "test1234a"})
+		r := httptest.NewRequest(http.MethodPost, "/login", bytes.NewReader(body))
+
+		mux.ServeHTTP(w, r)
 
 		response := UnsuccessfulLoginResponse{}
-		err := json.Unmarshal(wLogin.Body.Bytes(), &response)
+		err := json.Unmarshal(w.Body.Bytes(), &response)
 		if err != nil {
 			t.Fatal(err)
 		}
-		if wLogin.Code != 401 {
-			t.Fatalf("Wrong login code %v at attempt %v", wLogin.Code, i)
+		if w.Code != 401 {
+			t.Fatalf("Wrong login code %v at attempt %v", w.Code, i)
 		}
 	}
-	wLogin := httptest.NewRecorder()
-	body_login, _ := json.Marshal(LoginPayload{Email: user.Email, Password: user.Password})
-	req_login := httptest.NewRequest(http.MethodPost, "/login", bytes.NewReader(body_login))
-	LoginHandler(serverCfg, wLogin, req_login)
+	w := httptest.NewRecorder()
+	body, _ := json.Marshal(LoginPayload{Email: user.Email, Password: user.Password})
+	r := httptest.NewRequest(http.MethodPost, "/login", bytes.NewReader(body))
+	LoginHandler(serverCfg, w, r)
 
 	response := UnsuccessfulLoginResponse{}
-	err := json.Unmarshal(wLogin.Body.Bytes(), &response)
+	err := json.Unmarshal(w.Body.Bytes(), &response)
 	if err != nil {
 		t.Fatal(err)
 	}
-	if wLogin.Code != 401 {
-		t.Fatalf("Wrong login code %v", wLogin.Code)
+	if w.Code != 401 {
+		t.Fatalf("Wrong login code %v", w.Code)
 	}
 }
 
 func TestAuth(t *testing.T) {
 	serverCfg := testUtils.TestServerCFG()
-	testUser := RegisterAndLogin(t, &serverCfg)
-	LoginAttemptLimit(t, testUser, &serverCfg)
+	mux := http.NewServeMux()
+	RegisterRoutes(mux, &serverCfg)
+
+	testUser := RegisterAndLogin(t, &serverCfg, mux)
+	LoginAttemptLimit(t, mux, testUser, &serverCfg)
+
 	err := CleanupTestUser(testUser.ID, &serverCfg)
 	if err != nil {
 		t.Fatalf("Failed to clean up test user: %v", err)

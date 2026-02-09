@@ -5,19 +5,23 @@ meta {
 }
 
 post {
-  url: {{base_url}}/document_categories
+  url: {{base_url}}/document-categories
   body: json
   auth: bearer
 }
 
 auth:bearer {
-  token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiYTc0NTg4NDMtNjI2Yy00Mzg3LThkMmEtNmQwN2NhYWViZmIxIiwicm9sZSI6IlRlc3RSb2xlVmFsdWUiLCJpc3MiOiJzYXZlZnVlbCIsInN1YiI6ImE3NDU4ODQzLTYyNmMtNDM4Ny04ZDJhLTZkMDdjYWFlYmZiMSIsImV4cCI6MTc3MDA2NTM0OSwiaWF0IjoxNzcwMDYxNzQ5fQ.H3yoUVN4vR6g6bvgxL5IaIGb1dM7c-dFuPEkxXl3yr8
+  token: {{access_token}}
 }
 
 body:json {
   {
     "name":"{{timestamp}}"
   }
+}
+
+vars:pre-request {
+  access_token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNDNjN2MxZDgtZDUyYi00MDI5LTg2MzctOGUyYTMxY2YyMWI5Iiwicm9sZSI6IlRlc3RSb2xlVmFsdWUiLCJpc3MiOiJzYXZlZnVlbCIsInN1YiI6IjQzYzdjMWQ4LWQ1MmItNDAyOS04NjM3LThlMmEzMWNmMjFiOSIsImV4cCI6MTc3MDY3MjI3NCwiaWF0IjoxNzcwNjY4Njc0fQ.Rk2nz0FGx6i5TFPSP1g1Qi82ruALGQlgWD181AJanCY
 }
 
 script:pre-request {

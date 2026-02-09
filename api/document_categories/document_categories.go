@@ -56,15 +56,7 @@ func GetDocumentCategoryById(serverCfg *api.ServerConfig) http.HandlerFunc {
 			return
 		}
 
-		type response struct {
-			ID        uuid.UUID `json:"id"`
-			Name      string    `json:"name"`
-			Active    bool      `json:"active"`
-			CreatedAt time.Time `json:"created_at"`
-			UpdatedAt time.Time `json:"updated_at"`
-		}
-
-		api.RespondWithJSON(w, http.StatusOK, response{
+		api.RespondWithJSON(w, http.StatusOK, DocumentCategoryResponse{
 			ID:        doc_cat.ID,
 			Name:      doc_cat.Name,
 			Active:    doc_cat.Active,
@@ -105,11 +97,7 @@ func UpdateDocumentCategory(serverCfg *api.ServerConfig) http.HandlerFunc {
 			return
 		}
 
-		type parameters struct {
-			Name   string `json:"name"`
-			Active bool   `json:"active"`
-		}
-		params := parameters{}
+		params := UpdateDocumentCategoryPayload{}
 
 		defer r.Body.Close()
 		decoder := json.NewDecoder(r.Body)
@@ -125,15 +113,7 @@ func UpdateDocumentCategory(serverCfg *api.ServerConfig) http.HandlerFunc {
 			return
 		}
 
-		type response struct {
-			ID        uuid.UUID `json:"id"`
-			Name      string    `json:"name"`
-			Active    bool      `json:"active"`
-			CreatedAt time.Time `json:"created_at"`
-			UpdatedAt time.Time `json:"updated_at"`
-		}
-
-		res := response{
+		res := DocumentCategoryResponse{
 			ID:        doc_cat.ID,
 			Name:      doc_cat.Name,
 			Active:    doc_cat.Active,
@@ -147,10 +127,7 @@ func UpdateDocumentCategory(serverCfg *api.ServerConfig) http.HandlerFunc {
 func CreateDocumentCategory(serverCfg *api.ServerConfig) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 
-		type parameters struct {
-			Name string `json:"name"`
-		}
-		params := parameters{}
+		params := CreateDocumentCategoryPayload{}
 
 		defer r.Body.Close()
 		decoder := json.NewDecoder(r.Body)
@@ -166,15 +143,7 @@ func CreateDocumentCategory(serverCfg *api.ServerConfig) http.HandlerFunc {
 			return
 		}
 
-		type response struct {
-			ID        uuid.UUID `json:"id"`
-			Name      string    `json:"name"`
-			Active    bool      `json:"active"`
-			CreatedAt time.Time `json:"created_at"`
-			UpdatedAt time.Time `json:"updated_at"`
-		}
-
-		res := response{
+		res := DocumentCategoryResponse{
 			ID:        doc_cat.ID,
 			Name:      doc_cat.Name,
 			Active:    doc_cat.Active,
