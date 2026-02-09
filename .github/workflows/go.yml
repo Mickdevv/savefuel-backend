@@ -53,7 +53,7 @@ jobs:
       - name: Test
         env:
           DB_URL: "postgres://postgres:postgres@localhost:5432/test-db?sslmode=disable"
-        run: go test -v ./...
+        run: go test -v ./api/...
 
 
   
