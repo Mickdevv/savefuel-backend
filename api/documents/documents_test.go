@@ -12,10 +12,9 @@ import (
 	"github.com/Mickdevv/savefuel-backend/api/auth"
 	"github.com/Mickdevv/savefuel-backend/api/document_categories"
 	"github.com/Mickdevv/savefuel-backend/internal/testUtils"
-	"github.com/google/uuid"
 )
 
-func UpdateDocumentTest(t *testing.T, serverCfg *api.ServerConfig, mux *http.ServeMux, user auth.UserWithTokens, categoryId uuid.UUID) Document {
+func UpdateDocumentTest(t *testing.T, serverCfg *api.ServerConfig, mux *http.ServeMux, user auth.UserWithTokens, document Document) Document {
 	w := httptest.NewRecorder()
 	body, _ := json.Marshal(DocumentPayload{
 		Locale:      "EN",
@@ -23,7 +22,7 @@ func UpdateDocumentTest(t *testing.T, serverCfg *api.ServerConfig, mux *http.Ser
 		Description: "This is a test document",
 		Priority:    10,
 		Active:      false,
-		CategoryID:  categoryId,
+		CategoryID:  document.CategoryID,
 	})
 	r := httptest.NewRequest(http.MethodPost, "/documents", bytes.NewReader(body))
 	r.Header.Add("Authorization", "Bearer "+user.AccessToken)
@@ -53,7 +52,7 @@ func TestDocuments(t *testing.T) {
 	user := auth.RegisterAndLogin(t, &serverCfg, mux)
 	category := document_categories.CreateDocumentCategoryTest(t, serverCfg, mux, user)
 	document := UploadDocumentTest(t, &serverCfg, mux, user, category)
-	document := UpdateDocumentTest(t, &serverCfg, mux, user, document)
+	document = UpdateDocumentTest(t, &serverCfg, mux, user, document)
 	fmt.Println(document)
 
 	auth.CleanupTestUser(user.ID, &serverCfg)
