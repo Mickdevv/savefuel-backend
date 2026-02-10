@@ -128,15 +128,6 @@ type GetUserForAuthRow struct {
 	Password      string
 }
 
-type GetUserForAuthRow struct {
-	ID            uuid.UUID
-	CreatedAt     time.Time
-	UpdatedAt     time.Time
-	Email         string
-	EmailVerified bool
-	Password      string
-}
-
 func (q *Queries) GetUserForAuth(ctx context.Context, email string) (GetUserForAuthRow, error) {
 	row := q.db.QueryRowContext(ctx, getUserForAuth, email)
 	var i GetUserForAuthRow

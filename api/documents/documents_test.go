@@ -15,7 +15,7 @@ import (
 	"github.com/google/uuid"
 )
 
-func CreateDocumentTest(t *testing.T, serverCfg *api.ServerConfig, mux *http.ServeMux, user auth.UserWithTokens, categoryId uuid.UUID) Document {
+func UpdateDocumentTest(t *testing.T, serverCfg *api.ServerConfig, mux *http.ServeMux, user auth.UserWithTokens, categoryId uuid.UUID) Document {
 	w := httptest.NewRecorder()
 	body, _ := json.Marshal(DocumentPayload{
 		Locale:      "EN",
@@ -44,7 +44,6 @@ func CreateDocumentTest(t *testing.T, serverCfg *api.ServerConfig, mux *http.Ser
 }
 
 func TestDocuments(t *testing.T) {
-
 	serverCfg := testUtils.TestServerCFG()
 	mux := http.NewServeMux()
 	RegisterRoutes(mux, &serverCfg)
@@ -53,7 +52,8 @@ func TestDocuments(t *testing.T) {
 
 	user := auth.RegisterAndLogin(t, &serverCfg, mux)
 	category := document_categories.CreateDocumentCategoryTest(t, serverCfg, mux, user)
-	document := CreateDocumentTest(t, &serverCfg, mux, user, category.ID)
+	document := UploadDocumentTest(t, &serverCfg, mux, user, category)
+	document := UpdateDocumentTest(t, &serverCfg, mux, user, document)
 	fmt.Println(document)
 
 	auth.CleanupTestUser(user.ID, &serverCfg)

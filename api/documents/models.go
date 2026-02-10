@@ -8,7 +8,6 @@ import (
 
 type UploadDocumentPayload struct {
 	Title       string    `json:"title"`
-	Filename    string    `json:"filename"`
 	Locale      string    `json:"locale"`
 	Description string    `json:"description"`
 	Priority    int32     `json:"priority"`
