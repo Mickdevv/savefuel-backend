@@ -6,6 +6,10 @@ import (
 	"github.com/google/uuid"
 )
 
+type UploadDocumentResponse struct {
+	Message string   `json:"message"`
+	Data    Document `json:"data"`
+}
 type UploadDocumentPayload struct {
 	Title       string    `json:"title"`
 	Locale      string    `json:"locale"`

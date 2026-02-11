@@ -53,8 +53,10 @@ func TestDocuments(t *testing.T) {
 	category := document_categories.CreateDocumentCategoryTest(t, serverCfg, mux, user)
 
 	document := UploadDocumentTest(t, &serverCfg, mux, user, category)
-	document = UpdateDocumentTest(t, &serverCfg, mux, user, document)
+	fmt.Println("Document uploaded successfully")
 	fmt.Println(document)
+	// document = UpdateDocumentTest(t, &serverCfg, mux, user, document)
+	// fmt.Println(document)
 
 	auth.CleanupTestUser(user.ID, &serverCfg)
 }

@@ -36,10 +36,13 @@ func TestServerCFG() api.ServerConfig {
 		log.Fatalf("Error connecting to the database: %s", err)
 	}
 
+	tempDir := os.TempDir()
+	os.MkdirTemp(tempDir, "documents")
+
 	serverConfig := api.ServerConfig{
 		JWT_SECRET:       os.Getenv("JWT_SECRET"),
 		DB:               database.New(dbConn),
-		STATIC_FILES_DIR: os.Getenv("STATIC_FILES_DIR"),
+		STATIC_FILES_DIR: tempDir,
 	}
 	return serverConfig
 }

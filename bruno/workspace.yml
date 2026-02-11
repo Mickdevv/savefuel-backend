@@ -6,9 +6,13 @@ info:
 collections:
   - name: "Documents"
     path: "collections/Documents"
+  - name: "Auth"
+    path: "collections/Auth"
+  - name: "Document_categories"
+    path: "collections/Document_categories"
 
 specs:
 
 docs: ''
 
-activeEnvironmentUid: 1u74c4000000000000000
+activeEnvironmentUid: 1oz978400000000000000

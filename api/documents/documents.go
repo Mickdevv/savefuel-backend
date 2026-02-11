@@ -2,6 +2,7 @@ package documents
 
 import (
 	"encoding/json"
+	"fmt"
 	"io"
 	"net/http"
 	"os"
@@ -170,6 +171,8 @@ func uploadDocument(serverCfg *api.ServerConfig, w http.ResponseWriter, r *http.
 	params := UploadDocumentPayload{}
 	err := json.Unmarshal([]byte(metadata), &params)
 	if err != nil {
+		fmt.Println(metadata, err)
+		// api.RespondWithError(w, http.StatusBadRequest, "Error decoding metadata", err)
 		api.RespondWithError(w, http.StatusBadRequest, "Error decoding metadata", err)
 		return
 	}
