@@ -51,6 +51,7 @@ func TestDocuments(t *testing.T) {
 
 	user := auth.RegisterAndLogin(t, &serverCfg, mux)
 	category := document_categories.CreateDocumentCategoryTest(t, serverCfg, mux, user)
+
 	document := UploadDocumentTest(t, &serverCfg, mux, user, category)
 	document = UpdateDocumentTest(t, &serverCfg, mux, user, document)
 	fmt.Println(document)
