@@ -46,13 +46,13 @@ const costSavings = computed(() => {
           </div>
 
           <div class="input-group">
-            <label>{{ $t('cost_benefit_calculator.efficiency_gains') }} (%)</label>
-            <input type="number" :min="1" :max="30" v-model.number="efficiencyGains" />
+            <label>{{ $t('cost_benefit_calculator.fuel_volume') }} (L)</label>
+            <input type="number" :min="0" :step="1000" v-model.number="fuelVolume" />
           </div>
 
           <div class="input-group">
-            <label>{{ $t('cost_benefit_calculator.fuel_volume') }} (L)</label>
-            <input type="number" :min="0" :step="1000" v-model.number="fuelVolume" />
+            <label>{{ $t('cost_benefit_calculator.efficiency_gains') }} (%)</label>
+            <input type="number" :min="1" :max="30" v-model.number="efficiencyGains" />
           </div>
 
           <div class="input-group">
