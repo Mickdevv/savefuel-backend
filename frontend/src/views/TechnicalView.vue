@@ -1,14 +1,12 @@
 <script setup lang="ts">
 import Button from 'primevue/button'
 import { useCurrentPageStore } from '@/stores/current-page';
-import { useI18n } from 'vue-i18n';
 import { useRouter } from 'vue-router';
 
 const router = useRouter()
 const currentPageStore = useCurrentPageStore()
-currentPageStore.setCurrentPage("Technical")
+currentPageStore.setCurrentPage("technical")
 
-const { tm } = useI18n()
 </script>
 
 <template>
@@ -56,11 +54,7 @@ const { tm } = useI18n()
 
 <style scoped>
 .right-column {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   margin-left: 1rem;
-  width: 100%;
 }
 
 .buttons-bar {
@@ -69,14 +63,52 @@ const { tm } = useI18n()
 }
 
 .page-container {
-  display: flex
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
 }
 
 .paragraphs {
-  max-width: 75%;
+  width: 100%;
+}
+
+.images {
+  display: none;
 }
 
 .primary-button {
   margin: 1rem;
+}
+
+@media (min-width: 1080px) {
+  .images {
+    display: block;
+  }
+
+  .right-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 1rem;
+    width: 25%;
+  }
+
+  .buttons-bar {
+    display: flex;
+    justify-content: center;
+  }
+
+  .page-container {
+    display: flex;
+    flex-wrap: nowrap;
+  }
+
+  .paragraphs {
+    max-width: 75%;
+  }
+
+  .primary-button {
+    margin: 1rem;
+  }
 }
 </style>

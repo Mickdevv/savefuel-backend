@@ -6,10 +6,9 @@ import { useRouter } from 'vue-router';
 
 const router = useRouter()
 const currentPageStore = useCurrentPageStore()
-currentPageStore.setCurrentPage('Home')
 
 const { tm, t } = useI18n()
-currentPageStore.setCurrentPage(t('pages.home.page-title'))
+currentPageStore.setCurrentPage('home')
 </script>
 
 
@@ -17,7 +16,7 @@ currentPageStore.setCurrentPage(t('pages.home.page-title'))
 <template>
   <p v-for="(p, i) in tm('pages.home.paragraphs')">{{ p }}</p>
   <div class="button-container">
-    <Button @click="router.push('/how-fuel-ox-cuts-costs')" class="learn-more-button"
+    <Button @click="router.push('/how-fuel-ox-cuts-costs')" class="primary-button"
       :label="$t('pages.home.learn-more-button')" severity="warning" />
   </div>
 </template>

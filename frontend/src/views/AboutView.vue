@@ -5,7 +5,7 @@ import { useRouter } from 'vue-router';
 
 const router = useRouter()
 const currentPageStore = useCurrentPageStore()
-currentPageStore.setCurrentPage('About')
+currentPageStore.setCurrentPage('about')
 </script>
 <template>
   <div class="page-container">

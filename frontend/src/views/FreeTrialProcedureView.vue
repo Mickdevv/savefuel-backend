@@ -6,7 +6,7 @@ import { useRouter } from 'vue-router';
 
 const router = useRouter()
 const currentPageStore = useCurrentPageStore()
-currentPageStore.setCurrentPage("Free trial procedure")
+currentPageStore.setCurrentPage("free-trial-procedure")
 
 const { tm } = useI18n()
 </script>
@@ -20,7 +20,9 @@ const { tm } = useI18n()
       </p>
     </div>
     <div class="right-column">
-      <img src="../assets/Both Fuelox bottles.png" style="border-radius: 5px; width: 100%" alt="">
+      <div class="images">
+        <img src="../assets/Both Fuelox bottles.png" style="border-radius: 5px; width: 100%" alt="">
+      </div>
       <div class="buttons-bar">
         <Button class="primary-button" @click="router.push('/vehicles')"
           :label="$t('pages.free-trial-procedure.vehicles-button')"></Button>
@@ -35,7 +37,6 @@ const { tm } = useI18n()
 <style scoped>
 .right-column {
   margin-left: 1rem;
-  width: 100%;
 }
 
 .buttons-bar {
@@ -43,14 +44,45 @@ const { tm } = useI18n()
 }
 
 .page-container {
-  display: flex
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
 }
 
 .paragraphs {
-  max-width: 75%;
+  width: 100%;
 }
 
 .primary-button {
   margin: 1rem;
+}
+
+.images {
+  display: none;
+}
+
+@media (min-width: 1080px) {
+  .page-container {
+    flex-wrap: nowrap;
+  }
+
+  .paragraphs-column {
+    max-width: 75%
+  }
+
+  .images-column-container {
+    max-width: 25%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .images {
+    display: block;
+  }
+
+  .paragraphs {
+    width: 75%
+  }
 }
 </style>

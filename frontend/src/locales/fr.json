@@ -1,154 +1,234 @@
 {
-  "navbar": {
+  "menubar": {
     "home": "Accueil",
-    "users": "Utilisateurs",
-    "product": "Produit",
-    "documentation": "Documentation",
-    "meet_the_team": "L'équipe",
-    "order": "Commander",
-    "contact": "Contact"
+    "how-fo-cuts-costs": "Comment Fuel Ox réduit les coûts",
+    "free-trial-procedure": "Procédure d’essai gratuit",
+    "four-guarantees": "Quatre garanties",
+    "technical": "Technique",
+    "vehicles": "Véhicules",
+    "generators": "Générateurs",
+    "about": "À propos"
+  },
+  "pages": {
+    "home": {
+      "page-title": "Accueil",
+      "paragraphs": [
+        "Aimeriez-vous dépenser moins sur le carburant tous les mois ? ",
+        "Save Fuel Europe est le distributeur exclusif de Fuel Ox en France.  Nous aidons les entreprises de transport, les stations de ski, les sociétés de livraison et de logistique à réduire leurs factures de carburant, grâce à un traitement simple et efficace qui est sûr pour les moteurs.",
+        "Testez aujourd’hui, économisez demain."
+      ],
+      "learn-more-button": "En savoir plus"
+    },
+    "how-fo-cuts-costs": {
+      "page-title": "Comment Fuel Ox réduit les coûts",
+      "p1": "Le traitement Fuel Ox réduit la consommation de carburant par deux méthodes distinctes. Il améliore l’efficacité de combustion et le rendement du moteur.",
+      "p2": "Le traitement sur plusieurs pleins de carburant décrasse les systèmes de carburant et d'allumage rendant le moteur plus efficace.  Sur un véhicule turbo diesel à kilométrage élevé de 2005, une économie de 22% de carburant a pu être observé. L'essai sur route a montré une réduction de 17 % dans la consommation de carburant due au décrassement des systèmes moteur.  Le combustible traité brûle plus complètement, moins de carburant est donc nécessaire pour obtenir la même puissance.  Cette combustion améliorée  a permis une économie supplémentaire de 5%. Lisez le rapport complet des tests ici. ",
+      "p3": "Nous garantissons que votre véhicule aura une réduction dans la consommation de carburant d'au moins 7 %. Cela est garanti par un essai gratuit de Fuel Ox avec un véhicule de votre flotte. ",
+      "p4": "Notre calculatrice est à votre disposition pour vous permettre de voir les économies éventuelles que vous pourrez faire. Entrez le prix du carburant ainsi que votre consommation mensuelle en litres. Les résultats vous montreront les gains minimum si toute votre flotte est traité avec Fuel Ox. ",
+      "p5": "Les informations techniques détaillées se trouvent dans le Livre Blanc FuelOx. ",
+      "explore-a-free-trial-button": "Découvrir un essai gratuit"
+    },
+    "free-trial-procedure": {
+      "page-title": "Procedure d'essai gratuit",
+      "paragraphs": [
+        "Nous vous proposons un essai gratuit afin de tester la réduction de la consommation avant d'acheter.   Save Fuel Europe SAS [SFE] fournira suffisamment de Fuel Ox pour l’essai.  Le véhicule choisi idéalement, fait le plein au moins 2 fois par semaine et devra être conduit dans des conditions similaires qu’avant le test. ",
+        "SFE fournira une procédure de test détaillée, composée de trois phases.",
+        "Dans la première phase, il s’agit d’établir avec précision la consommation de carburant non traité. Commencez par remplir le ou les réservoirs jusqu’au fond du tube de remplissage, ou à un niveau que vous pouvez reproduire avec exactitude. Notez le kilométrage du véhicule. Roulez ensuite jusqu’à ce qu’il reste environ 25 % de carburant, puis refaites le plein exactement au même niveau. Notez à nouveau le kilométrage ainsi que le volume de carburant ajouté. Ajoutez ensuite le Fuel Ox dans le réservoir à une concentration double de la normale, soit 1 mL pour 5 L de carburant présent dans le réservoir.",
+        "La deuxième phase correspond à la phase initiale de nettoyage, durant laquelle commence le nettoyage du carburant et du système. Conduisez le véhicule jusqu’à ce qu’environ 75 % du carburant soit consommé, puis refaites le plein au même niveau. Notez le kilométrage ainsi que la quantité de carburant ajoutée. Ajoutez ensuite le Fuel Ox à la concentration normale, soit 1 mL pour 10 L de carburant ajouté.",
+        "Enfin, dans la troisième phase, mesurez la consommation de carburant traité. Conduisez jusqu’à ce qu’environ 75 % du carburant soit utilisé, puis refaites le plein au même niveau. Notez le kilométrage ainsi que le volume de carburant ajouté afin de déterminer la consommation avec carburant traité.",
+        "Il y a deux conditions à cet essai gratuit.  Vous devez transmettre les données à Save Fuel Europe et si l'économie de carburant est d'au moins 7 %, vous devez acheter au moins 1 litre de Fuel Ox. "
+      ],
+      "email-line": "Envoyez un e-mail pour organiser un essai gratuit ",
+      "vehicles-button": "Véhicules",
+      "generators-button": "Générateurs"
+    },
+    "vehicles": {
+      "page-title": "Véhicules",
+      "direct-cost-benefit": {
+        "title": "Bénéfice direct en coûts ",
+        "p1": "Un gros camion parcourant 150 000 km par an et brûlant 30 L/100 km consomme 45 000 L de carburant.  Avec la réduction minimale garantie de 7 % de la consommation, cela permet d'économiser 3 150 L.",
+        "p2": "Le traitement de 45 000 L de carburant nécessite 4,5 L de Fuel Ox, pour un coût de 891 € + TVA.  Si le carburant coûte 1,67 € + TVA (2,00 € au total), Fuel Ox réduit votre coût de carburant de 4 369 €, y compris le coût de Fuel Ox. "
+      },
+      "other-benefits": {
+        "title": "Autres avantages  ",
+        "p1_1": "Lisez le ",
+        "p1_2": "livre blanc Fuel Ox ",
+        "p1_3": "pour des informations techniques détaillées. ",
+        "bullet-points": [
+          "La polymérisation des molécules de carburant est rompue et leur re-polymérisation est empêchée, ce qui maximise l’efficacité de la combustion.",
+          "Les émissions d’oxydes d’azote (NOx) diminuent, ce qui réduit également la consommation d’AdBlue.",
+          "Environ 60 % de particules de suie noire en moins sont produites. Les filtres à particules (DPF) sont moins sollicités, avec moins de cycles de régénération, et leur durée de vie est prolongée.",
+          "Les émulsions et les boues qui obstruent les filtres sont décomposées.",
+          "La croissance microbienne est éliminée grâce à un agent biostatique.",
+          "Le produit contient des composés agissant comme catalyseurs, réduisant le monoxyde de carbone et les hydrocarbures imbrûlés en CO₂ et en eau.",
+          "La durée de stockage du carburant peut être prolongée jusqu’à 2 ans.",
+          "Les motos accélèrent plus rapidement et parcourent une plus grande distance avec un plein."
+        ]
+      },
+      "trial-reports": {
+        "title": "Rapports d'essais",
+        "t1_1": "France, Mercedes Sprinter avec réfrigération.  10 % d'économie de carburant. ",
+        "t1_2": "Laguilhon SAS.",
+        "t2_1": "France, véhicule tout-terrain, économie de carburant de 9 %. ",
+        "t2_2": "SARL Terre de Béarn.",
+        "t3_1": "France, Land Cruiser turbo diesel, économie de carburant de 22 %.  ",
+        "t3_2": "Toyota Land cruiser. ",
+        "t4_1": "Mine d'or Burkino Faso. ",
+        "t4_2": "Camions de transport Caterpillar de 150 tonnes et essai de bulldozer. ",
+        "t5_1": "Essai de mines au Ghana. ",
+        "t5_2": "Camions de remorque, bulldozer et excavatrice. "
+      },
+      "other-vehicle-documents": {
+        "title": "Autres documents de véhicules ",
+        "t1_1": "Vidéo - ",
+        "t1_2": "Comment ajouter du Fuel Ox",
+        "t2": "Exploitation de la flotte de camions ",
+        "t3": "Stations de ski FAQ ",
+        "t4": "Procédure d'essai du véhicule ",
+        "t5_1": "Écosse, ",
+        "t5_2": "test d'émissions du fourgon Ford Transit. ",
+        "t6_1": "Émirats arabes unis, ",
+        "t6_2": "test des émissions de camions Mitsubishi. "
+      },
+      "four-guarantees-button": "Quatre garanties"
+    },
+    "four-guarantees": {
+      "page-title": "Quatre garanties",
+      "manufacturers-guarantee": {
+        "title": "Garantie des fabricants ",
+        "p1_1": "Fuel Ox a une assurance pouvant aller jusqu'à 2 000 000 $ US en cas de dommage au moteur causé par le traitement Fuel Ox.  Aucune revendication n'a jamais été faite. Aucun utilisateur n'a jamais affirmé que l'utilisation de Fuel Ox avait endommagé son moteur.  ",
+        "p1_2": "Voir la garantie FuelOx. "
+      },
+      "EN590-ASTM-950": {
+        "title": "Garanties de conformité EN590 et ASTM-950 ",
+        "p1_1": "Des tests de laboratoire réalisés par Intertek en France ont permis de comparer le diesel non traité au diesel traité avec une concentration deux fois supérieure à la normale de Fuel Ox.  La plupart des mesures étaient les mêmes, 7 montraient de minuscules différences.  Le carburant traité reste conforme aux spécifications EN590.  Le rapport de laboratoire note également que le Red Diesel traité reste également dans les spécifications.  La présence d'oxygène carburant ne peut pas être détectée par un test selon EN590.  La garantie moteur reste valide car le carburant respecte les spécifications requises.  ",
+        "p1_2": "Voir les tests EN590 du laboratoire France Intertek. ",
+        "p2": "Des tests comparatifs en laboratoire avec la norme américaine ASTM-950 ont également montré que les résultats sur le carburant traité étaient presque identiques et respectaient la norme.  "
+      },
+      "save-fuel-europe-guarantee": {
+        "title": "Garantie SAS de Save Fuel Europe ",
+        "p1": "Nos propres tests et de nombreux tests indépendants prouvent que le traitement Fuel Ox réduit la consommation de carburant des véhicules de 6 % à 28 %.  Les rapports d'essai se trouvent sur la page Véhicules.  Save Fuel Europe offre la garantie qu'au moins 7 % de réduction dans la consommation sera atteint si notre procédure d'essai est suivie correctement. "
+      },
+      "historical-guarantee": {
+        "title": "Garantie historique ",
+        "p1": "Fuel Ox a été développé dans les années 1990 pour la société AT&T et l'armée américaine.  Fuel Ox traite actuellement environ 50 000 000 de litres de carburant chaque mois.  Les utilisateurs ne continueraient pas à acheter Fuel Ox s'il ne fonctionnait pas."
+      },
+      "technical-button": "Technique"
+    },
+    "generators": {
+      "page-title": "Générateurs",
+      "direct-cost-benefit": {
+        "title": "Bénéfice financier direct ",
+        "p1": "Un générateur typique bien entretenu de 100 kVA à 75 % de pleine charge brûlerait environ 21 L/heure, fournissant ~ 3,6 kWh/L.  Si cela était utilisé sur 22 jours de travail de 8 heures par mois, le carburant non traité serait de 21 x 8 x 22 = 3696 L.  Avec la réduction minimale garantie de 7 % de la consommation, cela permet d'économiser 259 L. ",
+        "p2": "Le traitement de 3696 L de carburant nécessite 0,37 L de Fuel Ox, coûtant 73 € + TVA.  Si le carburant coûte 1,67 € + TVA (2,00 € au total), Fuel Ox réduit le coût d'un générateur sur un mois d'au moins 360 €, y compris le coût de Fuel Ox avec une réduction garantie minimale de 7 % sur la consommation de carburant.   ",
+        "p3": "Pour les lieux isolés, la logistique devient plus facile car chaque chargement de carburant dure plus longtemps. "
+      },
+      "other-benefits": {
+        "title": "Autres avantages",
+        "p1_1": "Lisez le ",
+        "p1_2": "livre blanc Fuel Ox ",
+        "p1_3": "pour des informations techniques détaillées. ",
+        "bullet-points": [
+          "Polymérisation des molécules de combustible brisées et re-polymérisation empêchée.  Maximise l'efficacité de la combustion.   ",
+          "Les émissions de protoxyde d'azote diminuent. ",
+          "Environ 60 % de particules de suie noire en moins sont produites. ",
+          "Les émulsions et boues qui bloquent les filtres sont cassées. ",
+          "La croissance microbienne est éliminée par un agent biostatique. ",
+          "Incorpore des composés qui agissent comme catalyseurs, réduisant le monoxyde de carbone et les hydrocarbures non brûlés en CO2 et eau. ",
+          "La durée de conservation du carburant s'étendait jusqu'à 2 ans.  Particulièrement utile pour les générateurs d'urgence et le stockage de carburant. "
+        ]
+      },
+      "trial-reports": {
+        "title": "Rapports d'essais",
+        "p1": "Mine péruvienne, ",
+        "p2": "test d'émission du générateur. "
+      },
+      "four-guarantees-button": "Quatre garanties"
+    },
+    "technical": {
+      "page-title": "Technique",
+      "history": {
+        "title": "Historique",
+        "p1": "Bell Labs est un laboratoire américain de recherche scientifique et industrielle fondé en 1925.  Il a développé la radioastronomie, les transisters, les lasers, les cellules photovoltaïques, le dispositif à couplage de charge, la théorie de l'information, le système d'exploitation Unix et plusieurs grands langages de programmation.  Ses chercheurs ont reçu onze prix Nobel et cinq prix Turing pour des recherches menées aux Bell Labs, notamment pour la découverte du fond micro-ondes cosmique. ",
+        "p2": "Les molécules des combustibles hydrocarburés sont polaires. Elles ont des charges électriques différentes à différents endroits de la molécule. Cela conduit à la polymérisation, où des charges négatives sur une molécule adhèrent aux charges positives sur une autre molécule. Cela provoque la formation d'amas de molécules, empêchant l'oxygène d'atteindre les molécules à l'intérieur de l'amas pendant la combustion. Une combustion incomplète provoque de la suie et des hydrocarbures non brûlés à l'échappement et nécessite plus de carburant pour produire une puissance donnée. Il faut plus d'accélérateur pour maintenir la même puissance.  La polymérisation augmente avec le temps, de sorte qu'après plusieurs mois de production en raffinerie, le combustible devient inutilisable.  Il bouche filtres et conduites de carburant, crée des dépôts à l'intérieur des systèmes d'injection.  Les moteurs deviennent moins efficaces avec l'utilisation, ce qui signifie qu'il faut brûler encore plus de carburant pour obtenir une performance souhaitée. ",
+        "p3": "Bell Labs appartenait à la grande société AT&T (Atlantic Telephone and Telegraph) qui possédait une vaste flotte de véhicules à travers les États-Unis. Les laboratoires ont développé un traitement de carburant pour décomposer et prévenir la polymérisation du carburant, restaurant les performances du moteur et la combustion du carburant afin d'améliorer la durée de conservation et de réduire la consommation de carburant. Ce traitement de carburant a ensuite été adopté par l'armée américaine. Son nom actuel est Fuel Ox et il traite actuellement environ 50 millions de litres de carburant par mois, principalement aux États-Unis. ",
+        "p4": "Fuel Ox comprend des catalyseurs.  Un catalyseur provoque des réactions chimiques sans être consommé par la réaction, donc une petite quantité de catalyseur continuera à agir longtemps. Le traitement normal avec Fuel Ox utilise une partie sur 10 000. Un litre de Fuel Ox traite 10 000 litres de carburant. L'amélioration de l'efficacité de combustion est d'environ 5 %. L'amélioration de l'efficacité du moteur peut être bien plus importante, selon l'état du moteur. "
+      },
+      "technical-documents": {
+        "title": "Documents techniques (consultation PDF ou téléchargement) ",
+        "p1_1": "Informations sur le produit",
+        "p1_2": "Caractéristiques, normes, spécifications. ",
+        "p2_1": "Livre blanc sur Fuel Ox ",
+        "p2_2": "5 pages, explication détaillée du fonctionnement des fonctionnalités Fuel Ox.  Vraiment intéressant. ",
+        "p3_1": "FAQ",
+        "p3_2": "Questions et réponses courantes.  Merci de nous envoyer toutes vos questions à ajouter,",
+        "p4_1": "GNR comparé au carburant EN590",
+        "p4_2": "Comment les normes pour Gasoil Non Routier et le diesel standard de l'UE se comparent pour le traitement des Fuel Ox. ",
+        "p5_1": "Fuel Ox MSDS",
+        "p5_2": "Fiche de données de sécurité des matériaux. ",
+        "p6_1": "Tests en laboratoire EN 590",
+        "p6_2": "Intertek France a réalisé des tests sur le diesel, comparant le carburant non traité avec le Fuelox ajouté à une concentration deux fois supérieure à la normale. ",
+        "p7_1": "Tests de laboratoire ASTM D-975",
+        "p7_2": "Le laboratoire FirstEnergy en Oklahoma a comparé le diesel traité à l'oxygène carburant avec le diesel non traité. ",
+        "p8_1": "Garantie des fabricants de Fuel Ox",
+        "p8_2": "une police d'assurance de 2 millions de dollars contre les dommages au moteur.  Jamais revendiqué. "
+      },
+      "about-button": "À propos"
+    },
+    "about": {
+      "page-title": "À propos",
+      "title": "Save Fuel Europe est le distributeur exclusif de Fuel Ox en France – jusqu'à 22 % d'économies de carburant prouvées sur la route ",
+      "p1": "Save Fuel Europe aide les entreprises de transport, de livraison et de logistique à réduire leurs factures de carburant grâce à un traitement simple et efficace, sûr pour les moteurs.  Nous attendons plus mais garantissons au moins 7 % sur un essai gratuit ; Sans risque.  ",
+      "p2": "Gérer une flotte de véhicules utilitaires, camions ou 4x4 et voir les coûts du carburant gruger vos marges chaque mois ? Vous savez qu'une réduction minimale de 7 % ferait une vraie différence, mais vous êtes prudent à l'idée d'essayer un traitement au carburant d'un distributeur encore peu connu en France ?  Nous comprenons parfaitement cette prudence. Les gestionnaires de flotte s'inquiètent surtout de deux choses : risquer d'endommager des moteurs coûteux ou de ne pas bénéficier d'un soutien local fiable.  La guerre de Trump provoque des pénuries de carburant, poussez plus loin sur chaque char.  Save Fuel Europe a commencé par des tests réels sur des véhicules du quotidien avant d'approcher les flottes professionnelles.   ",
+      "p3": "Fuel Ox est un traitement multifonction de carburant de 35 ans pour essence et diesel qui nettoie le système de carburant du moteur, réduit la friction, optimise la combustion et diminue les émissions nocives, traitant environ 50 millions de litres de carburant par mois.  Résultat : jusqu'à 22 % d'économies de carburant, des performances moteur plus fluides et une combustion plus propre — sans modifications mécaniques et sans risque pour votre garantie.   En tant que distributeur exclusif en France, nous existons pour fournir et soutenir nos utilisateurs. ",
+      "p4_1": "Save Fuel Europe a testé Fuel Ox sur de vrais véhicules en conditions normales avant de devenir distributeur européen, en utilisant notre ",
+      "p4_2": "procédure d'essai.  ",
+      "p4_3": "Sur une ",
+      "p4_4": "Toyota Land Cruiser 2005",
+      "p4_5": ", économie de carburant de 22 %, même conducteur, conduisant à la limite de vitesse si le trafic le permet. Le moteur fonctionne plus doucement, avec une meilleure réponse de l'accélérateur et une fumée visiblement réduite. ",
+      "p5_1": "Une entreprise locale disposant d'une ",
+      "p5_2": "camionnette Mercedes Sprinter 2023",
+      "p5_3": " réfrigérée (lignes urbaines et suburbaines quotidiennes).  10 % d'économie de carburant grâce à notre procédure d'essai. ",
+      "p6_1": "Un ",
+      "p6_2": "Land Rover de 2000 ",
+      "p6_3": "préparé par un spécialiste du Paris-Dakar (exigeant des conditions de rally-raid et un usage intensif).  Réduction de 9 % de carburant grâce à notre procédure d'essai. ",
+      "p7": "Une Yamaha FJR1300 moto de 2010.  Consommation de carburant non mesurée.  Le propriétaire a constaté une meilleure accélération et un démarrage à froid après le traitement avec Fuel Ox. ",
+      "p8_1": "Un test de laboratoire indépendant réalisé par Intertek confirme que l'ajout de Fuel Ox ne modifie pas la composition du carburant.  Cela garantit une compatibilité totale avec les moteurs diesel et essence modernes, sans risque pour les injecteurs, filtres ou systèmes de contrôle des émissions.  ",
+      "p8_2": "Téléchargez le rapport Intertek (PDF). ",
+      "p9": "Ces résultats combinés (économies mesurées + vérification indépendante) nous permettent d'offrir Fuel Ox avec une confiance totale aux flottes professionnelles. ",
+      "p10": "Save Fuel Europe est une petite équipe composée de professionnels qui comprennent les réalités du transport et de la logistique. Pas de grand siège social ni de marketing surévalué — juste un produit qui fonctionne, un service client proche, et un véritable désir d'aider des entreprises comme la vôtre à réduire durablement les coûts du carburant tout en diminuant votre empreinte environnementale.  Save Fuel Europe est transparent : nous avons commencé petit pour construire de vraies preuves. Nous visons à aider les entreprises de transport routier, les stations de ski et les gestionnaires de flotte à améliorer leurs performances financières et environnementales avec Fuel Ox en France et dans toute l'UE. "
+    }
+  },
+  "components": {
+    "navbar": {},
+    "footer": {
+      "save-fuel": "Économisez du carburant",
+      "protect-earth": "Protégez la planète",
+      "reduce-costs": "Réduisez vos coûts"
+    }
   },
   "cost_benefit_calculator": {
-    "title": "Calculateur coût-bénéfice",
+    "title": "Économies FuelOx®",
     "fuel_price": "Prix du carburant",
-    "efficiency_gains": "Gains d'efficacité",
+    "efficiency_gains": "Gain d’efficacité",
     "fuel_volume": "Volume de carburant",
-    "fuelOx_price_per_L": "Prix du FuelOx® par L",
+    "fuelOx_price_per_L": "Prix du FuelOx®",
     "fuel_savings": "Économies de carburant",
-    "fuelOx_needed": "Quantité de FuelOx® nécessaire",
-    "fuelOx_cost_per_L": "Coût de traiter 1L de carburant",
+    "fuelOx_needed": "FuelOx® nécessaire",
     "fuelOx_cost": "Coût du FuelOx®",
-    "cost_savings": "Économies totales"
+    "fuelOx_cost_per_L": "Coût de traitement par litre",
+    "cost_savings": "Économies réalisées"
   },
-  "home_page": {
-    "what_is_fuelox": {
-      "title": "Qu'est-ce que FuelOx® ?",
-      "content": "FuelOx® avec catalyseur de combustion est un additif carburant de pointe, conçu pour améliorer les performances et la longévité du moteur. En favorisant une combustion plus complète, cette formule révolutionnaire maximise l’efficacité énergétique tout en réduisant les émissions nocives. Sa composition unique aide également à ralentir la dégradation du carburant, l’accumulation d’humidité et les dépôts dans le moteur, garantissant ainsi une qualité de carburant optimale et une propreté accrue du moteur. Utilisé par des entreprises à travers le monde incluant par le Ministre de la Défense Américaine, FuelOx® avec catalyseur de combustion s’impose comme la solution pour optimiser les performances moteur tout en favorisant la durabilité environnementale."
-    },
-    "proven_track_record": {
-      "title": "Historique",
-      "content": [
-        "FuelOx® a été développé pour améliorer considérablement l’efficacité énergétique et prolonger la longévité des composants d’un moteur dans tous les climats ainsi que pour le Ministre de la Défense Américaine. Sa formule est soluble dans tous les carburants à base de pétrole et grâce à sa haute concentration, le dosage est simple et le stockage du produit est facile. Aujourd’hui FuelOx® traite environ 50 millions de litres de carburant par mois et a été utilisé dans plus de 50 000 moteurs sans incident."
-      ]
-    },
-    "benefits": {
-      "title": "Avantages",
-      "main_benefit": {
-        "title": "Avantage principal",
-        "content": "Reduire la consommation de carburant 7-12% et améliore la performance du moteur."
-      },
-      "secondary_benefits": {
-        "title": "Avantages secondaires",
-        "content": [
-          "Moins de suie et 50 % de régénérations en moins.",
-          "15 à 20 % de réduction de la consommation de DEF (AdBlue).",
-          "Stabilise le carburant pour un stockage de longue durée.",
-          "Désémulsionne et prévient le développement de bactéries."
-        ]
-      }
-    }
-  },
-  "documentation_page": {
-    "Technical": "Technique",
-    "Vehicle": "Véhicule",
-    "Static": "Statique",
-    "Marine": "Marine",
-    "Business": "Notre société"
-  },
-  "slogan": ["Économiser du Carburant", "Protéger la Terre", "Réduire les Coûts"],
-  "contactForm": {
-    "emailSuccess": "Envoyé avec succès",
-    "emailFail": "Erreur lors de l'envoi",
-    "lastName": "Nom",
-    "firstName": "Prénom",
-    "phoneNumber": "Numéro de téléphone",
-    "email": "Email",
-    "message": "Message",
-    "message_placeholder": "Ajouter un message",
-    "company": "Entreprise",
-    "reason": "Motif de contact",
-    "reason_placeholder": "Sélectionner",
-    "reason_options": {
-      "trial_enquiry": "Demande d’essai gratuit",
-      "place_an_order": "Passer une commande",
-      "general_enquiry": "Demande générale",
-      "other": "Autre"
-    },
-    "submit": "Envoyer",
-    "contact_us": "Un problème avec le formulaire ? Envoyez-nous un e-mail "
-  },
-  "place_order_page": {
-    "form": {
-      "success": "Commande envoyée avec succès",
-      "select_country": "Veuillez selectionner le pays de livraison.",
-      "fail": "Erreur lors de l'envoi",
-      "lastName": "Nom",
-      "firstName": "Prénom",
-      "phoneNumber": "Numéro de téléphone",
-      "email": "Email",
-      "fuelOx_quantity": "FuelOx (L)",
-      "bottle_quantity": "Bouteilles (100 ml)",
-      "message": "Informations supplémentaires",
-      "company": "Entreprise",
-      "invalid_email_address": "Adresse e-mail invalide",
-      "email_success": "Commande passée avec succès. Un e-mail de confirmation a été envoyé à votre adresse e-mail.",
-      "email_fail": "Erreur lors de l'envoi. Si le problème persiste, veuillez contacter notre équipe via le formulaire de contact.",
-      "countries": {
-        "Austria": "Autriche",
-        "Belgium": "Belgique",
-        "Bulgaria": "Bulgarie",
-        "Croatia": "Croatie",
-        "Cyprus": "Chypre",
-        "Czechia": "Tchéquie",
-        "Denmark": "Danemark",
-        "Estonia": "Estonie",
-        "Finland": "Finlande",
-        "France": "France",
-        "Germany": "Allemagne",
-        "Greece": "Grèce",
-        "Hungary": "Hongrie",
-        "Ireland": "Irlande",
-        "Italy": "Italie",
-        "Latvia": "Lettonie",
-        "Lithuania": "Lituanie",
-        "Luxembourg": "Luxembourg",
-        "Malta": "Malte",
-        "Netherlands": "Pays-Bas",
-        "Poland": "Pologne",
-        "Portugal": "Portugal",
-        "Romania": "Roumanie",
-        "Slovakia": "Slovaquie",
-        "Slovenia": "Slovénie",
-        "Spain": "Espagne",
-        "Sweden": "Suède"
-      },
-
-      "address": {
-        "country": "Pays",
-        "city": "Ville",
-        "street_address": "Rue et N de voie",
-        "postcode": "Code postal"
-      },
-      "price": "Prix (hors livraison)",
-      "submit": "Envoyer",
-      "message_placeholder": "Ajouter un message"
-    }
-  },
-  "the_team": {
-    "michael": {
-      "title": "Michael DEVEREUX",
-      "position": "Responsable technique",
-      "content": "Avec son expérience en informatique et en ingénierie, Michael veille à ce que tous nos besoins numériques soient satisfaits."
-    },
-    "steve": {
-      "title": "Steve DEVEREUX",
-      "position": "President",
-      "content": "Après 40 ans passés à forer des puits de pétrole, Steve concentre désormais ses efforts sur la réduction de la combustion des énergies fossiles et de la pollution."
-    },
-    "lesley": {
-      "title": "Lesley VAQUERO",
-      "position": "Directrice des ventes",
-      "content": "Gérante d’entreprise depuis 2008, Lesley pilote avec audace les stratégies commerciales et les équipes pour accélérer notre croissance et promouvoir des solutions énergétiques durables."
+  "links": {
+    "documents": {
+      "land-cruiser-22pc-report": "https://save-fuel.eu/docs/fr/Vehicle/France-2025-TurboDiesel-22pc-moins-fioul.pdf",
+      "fuel-ox-white-paper": "https://save-fuel.eu/docs/fr/Technical/FuelOx-Livre-Blanc.pdf",
+      "laguilhon-trial": "https://save-fuel.eu/docs/fr/Vehicle/France-2026-test-Mercedes-Sprinter.pdf",
+      "SARL-Bearn-trial": "",
+      "burkhina-faso-mine": "https://save-fuel.eu/docs/fr/Static/Mine-d'or-Burkina-Faso.pdf",
+      "ghana-mine": "https://save-fuel.eu/docs/fr/Static/Adamus-Resources-Ghana-mine.pdf",
+      "how-tu-use-fuel-ox": "https://save-fuel.eu/docs/fr/Vehicle/Application-FuelOx-Camions.pdf",
+      "scotland-ford-transit": "https://save-fuel.eu/docs/fr/Vehicle/Transit-Van-Emissions-Results.pdf"
     }
   }
 }

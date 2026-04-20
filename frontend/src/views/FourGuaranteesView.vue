@@ -5,7 +5,7 @@ import { useRouter } from 'vue-router';
 
 const router = useRouter()
 const currentPageStore = useCurrentPageStore()
-currentPageStore.setCurrentPage('Four guarantees')
+currentPageStore.setCurrentPage('four-guarantees')
 </script>
 <template>
   <div class="page-container">

@@ -1,4 +1,14 @@
 {
+  "menubar": {
+    "home": "Home",
+    "how-fo-cuts-costs": "How FO cuts costs",
+    "free-trial-procedure": "Free trial procedure",
+    "four-guarantees": "Four guarantees",
+    "technical": "Technical",
+    "vehicles": "Vehicles",
+    "generators": "Generators",
+    "about": "About"
+  },
   "pages": {
     "home": {
       "page-title": "Home",
@@ -10,21 +20,22 @@
       "learn-more-button": "Learn more"
     },
     "how-fo-cuts-costs": {
-      "p1": "Fuel Ox treatment cuts fuel consumption by two separate methods. It improves burn efficiency and improves engine efficiency.",
-      "p2": "Treatment over several tanks of fuel cleans the fuel and ignition systems of sludges and deposits which maked the engine work more efficiently. With a 2005 high mileage turbo diesel vehicle, this made a dramatic difference. The road test showed a 17% reduction in fuel consumption from cleaning the engine systems. Treated fuel burns more completely, less fuel is required to give the same power output. This enhanced combustion cut consumption by another 5%. The total saving was 22%. Read the full test report ",
-      "p3": "We guarantee that your vehicle will see reduced fuel consumption of at least 7%. This is guaranteed by you performing a free trial of Fuel Ox on a vehicle in your fleet.",
-      "p4": "You can use our calculator to see the potential savings. Enter the current fuel price and your monthly fleet fuel consumption in litres to see the minimum cost savings if all your fleet treated fuel with Fuel Ox.",
+      "page-title": "How Fuel Ox cuts costs",
+      "p1": "Fuel Ox treatment cuts fuel consumption by two separate methods.  It improves burn efficiency and improves engine efficiency. ",
+      "p2": "Treatment over several tanks of fuel cleans the fuel and ignition systems of sludges and deposits which makes  the engine work more efficiently.  With a 2005 high mileage turbo diesel vehicle, this made a dramatic difference.   The road test showed a 17% reduction in fuel consumption from cleaning the engine systems.  Treated fuel burns more completely, less fuel is required to give the same power output.  This enhanced combustion cut consumption by another 5%.  The total saving was 22%.  Read the full test report here. ",
+      "p3": "We guarantee that your vehicle will see a reduced fuel consumption of at least 7%. This is guaranteed by you performing  a free trial of Fuel Ox on a vehicle in your fleet. ",
+      "p4": "You can use our calculator to see the potential savings.  Enter the current fuel price and  your monthly fleet fuel consumption in litres to see the minimum cost savings if all your fleet is treated fuel with Fuel Ox. ",
       "p5": "Detailed technical information is in the Fuel Ox White Paper.",
       "explore-a-free-trial-button": "Explore a free trial"
     },
     "free-trial-procedure": {
       "page-title": "Free trial procedure",
       "paragraphs": [
-        "A free trial allows you to test the reductyion in fuel consumption before buying. Sace Fuel Europe SAS [SFE] will provide enough Fuel Ox for your trial vehicle. The vehicle chosen will ideally refuel 2 or more times in a normal working week and drive under similar conditions during the test.",
+        "A free trial allows you to test the reduction in fuel consumption before buying.   Save Fuel Europe SAS [SFE] will provide enough Fuel Ox for your trial vehicle.  The vehicle chosen will ideally refuel 2 or more times in a normal working week and drive under similar conditions during the test. ",
         "SFE will provide a detailed test procedure. There are 3 phases.",
-        "First, accurately establish the baseline untreated fuel consumption. Fill the tank(s) to the bottom of the filler tube or to a level that can be accurately repeated. Notice the odometer distance. Drice until you have used about 75% of your total fuel capacity. Refuel to exactly the same level, note the odometer reading and the fuel added. Add Fuel Ox at twice the normal concentration to the full fuel capacity; 1mL per 5L of fuel.",
-        "Next is the initial clean-up phase where the process of cleaning the fuel and ignition system begins. Drive until about 75% of the fuel is used. Refuel to exactly the same level, note the odometer reading and teh fuel added. Add the normal concentration of FuelOx to the volume of fuel added, 1mL per 10L of fuel.",
-        "Finally, measure the treated fuel consumption. Drive until about 75% of your fuel is used. Refuel to exactly the same level, note the odometer reading and the fuel added.",
+        "First, accurately establish the baseline untreated fuel consumption.  Fill the tank(s) to the bottom of the filler tube or to a level that can be accurately repeated.  Note the odometer distance.  Drive until about 75% empty tank(s).  Refuel to exactly the same level, note the odometer reading and the fuel added.  Add Fuel Ox at twice the normal concentration to the full tank volume(s); 1 mL per 5 L of fuel.   ",
+        "Next is the initial clean-up phase where the process of cleaning the fuel and ignition systems begins.  Drive until about 75% of the fuel is used.  Refuel to exactly the same level, note the odometer reading and the fuel added.  Add the normal concentration of Fuel Ox to the volume of fuel added, 1 mL per 10 L of fuel. ",
+        "Finally, measure the treated fuel consumption.  Drive until about 75% of fuel is used.  Refuel to exactly the same level, note the odometer reading and the fuel added. ",
         "There are two conditions attached to a free trial. You report the results to Save Fuel Europe and if the fuel saving is at least 7% you buy at least 1 litre of FuelOx."
       ],
       "email-line": "Email to set up a free trial ",
@@ -32,24 +43,25 @@
       "generators-button": "Generators"
     },
     "vehicles": {
+      "page-title": "Vehicles",
       "direct-cost-benefit": {
         "title": "Direct cost benefit",
-        "p1": "A large truck driving 150 000km per year burning 30L/100km uses 45 000L of fuel. At the minimum guaranteed 7% cut in consumption, this saves 3 150L.",
-        "p2": "Treating 45 000 L of fuel takes 4.5L of Fuel Ox, costing €891 + VAT. If fuel costs €1.67 + VAT (€2.00 total), Fuel Ox cuts your fuel cost by €4 369 including the cost of Fuel Ox."
+        "p1": "A large truck driving 150,000 km a year burning 30 L/100 km uses 45,000 L of fuel.  At the minimum guaranteed 7% cut in consumption, this saves 3,150 L. ",
+        "p2": "Treating 45,000 L of fuel takes 4.5 L of Fuel Ox, costing €891 + VAT.  If fuel costs €1.67 + VAT (€2.00 total), Fuel Ox cuts your fuel cost by €4,369 including the cost of Fuel Ox."
       },
       "other-benefits": {
         "title": "Other benefits",
         "p1_1": "Read the ",
         "p1_2": "Fuel Ox white paper",
-        "p1_3": "Fuel Ox white paper",
+        "p1_3": "for detailed technical information. ",
         "bullet-points": [
-          "Polymerisation of fuel molecules broken and re-polymerisation prevented. Maxminises burn efficiency.",
+          "Polymerisation of fuel molecules broken and re-polymerisation prevented. Maxmimises burn efficiency.",
           "Nitrous Oxide emissions reduce so AdBlue use also reduces.",
           "~60% fewer black soot particulates are produced. DPF filters work less with fewer regeneration cycles and last longer.",
           "Emulsions and sludges which block filters are also broken.",
           "Microbial growth is eliminated with a biostatic agent.",
           "Incorporates compounds that act as a catalytic converter, reducing carbon monoxide and unburnt hydrocarbons to CO2 and water.",
-          "Storage life extended up to 2 years.",
+          "Storage life of fuel extended up to 2 years.",
           "Motorbikes accelerate faster and go further on a tank of fuel."
         ]
       },
@@ -82,6 +94,7 @@
     },
 
     "four-guarantees": {
+      "page-title": "Four guarantees",
       "manufacturers-guarantee": {
         "title": "Manufacturer's guarantee",
         "p1_1": "Document1 Page 14 of 27 Last updated 09/04/2026 14:06:00 Guarantees page Notes 1) SFE logo 150 px high. 2) Technical button links to Technical page. English text Manufacturers Guarantee Fuel Ox carries insurance for up to US$ 2,000,000 in case of damage to an engine caused by Fuel Ox treatment. No claim was ever made. No user has ever alleged that using Fuel Ox damaged their engine.",
@@ -104,6 +117,7 @@
       "technical-button": "Technical"
     },
     "generators": {
+      "page-title": "Generators",
       "direct-cost-benefit": {
         "title": "Direct cost benefit",
         "p1": "A typical well maintained 100 kVA generator at 75% full load would burn around 21 L/hour, providing ~ 3.6 kWh/L. If that was used over 22 x 8 hour working days in a month, untreated fuel used would be 21 x 8 x 22 = 3696 L. At the minimum guaranteed 7% cut in consumption, this saves 259 L",
@@ -133,6 +147,7 @@
       "four-guarantees-button": "Four guarantees"
     },
     "technical": {
+      "page-title": "Technical",
       "history": {
         "title": "History",
         "p1": "Bell Labs is an American scientific and industrial research laboratory established in 1925. It developed radio astronomy, transisters, lasers, photovoltaic cells, the charge coupled device, information theory, Unix computer operating system and several ma jor programming languages. Its researchers were awarded eleven Nobel prizes and five Turing Awards for research done at Bell Labs, including for the discovery of the Cosmic Microwave Background.",
@@ -162,6 +177,7 @@
       "about-button": "About SFE"
     },
     "about": {
+      "page-title": "About",
       "title": "Save Fuel Europe is the exclusive Fuel Ox distributor in France - Up to 22% proven fuel savings on the road",
       "p1": "Save Fuel Europe helps transport, delivery and logistics companies cut their fuel bills with a simple, effective treatment that is safe for engines. We expect more but guarantee at least 7% on a free trial; risk free",
       "p2": "Running a fleet of utility vehicles, trucks or 4x4s and watching fuel costs eat into your margins every month? You know a minimum 7% reduction would make a real difference, but you’re cautious about trying a fuel treatment from a distributor that’s not yet well - known in F rance? We completely understand that caution. Fleet managers are most concerned about two things: risking damage to expensive engines or lacking reliable local support. Trump’s war causing fuel shortages, drive further on each tank. Save Fuel Europe sta rted with real - world tests on everyday vehicles before approaching professional fleets.",
@@ -198,15 +214,6 @@
       "reduce-costs": "Reduce costs"
     }
   },
-  "navbar": {
-    "home": "Home",
-    "users": "Users",
-    "product": "Product",
-    "documentation": "Documentation",
-    "meet_the_team": "Meet the team",
-    "order": "Order",
-    "contact": "Contact"
-  },
   "cost_benefit_calculator": {
     "title": "FuelOx® savings",
     "fuel_price": "Fuel price",
@@ -218,136 +225,5 @@
     "fuelOx_cost": "FuelOx® cost",
     "fuelOx_cost_per_L": "Cost to treat 1L of fuel",
     "cost_savings": "Cost savings"
-  },
-  "home_page": {
-    "what_is_fuelox": {
-      "title": "What is FuelOx®?",
-      "content": "FuelOx® with Combustion Catalyst is a cutting-edge fuel additive engineered to enhance engine performance and longevity. By promoting more complete combustion, this revolutionary formula maximises fuel efficiency while reducing harmful emissions. Its unique composition also helps prevent fuel degradation, moisture accumulation and engine deposits, ensuring optimal fuel quality and engine cleanliness. Trusted by drivers and fleet managers worldwide, FuelOx®with Combustion Catalyst is the go-to solution for achieving peak engine performance an environmental sustainability."
-    },
-    "proven_track_record": {
-      "title": "History",
-      "content": [
-        "FuelOx® with Combustion Catalyst was originally developed for ultra high-intensity applications, including use by the United States Department of Defense. Engineered to be soluble in all petroleum-based fuels and extremely concentrated, it was specifically designed to dramatically improve fuel efficiency and extend the longevity of engine components, even in the harshest climates. Its highly concentrated formula allows for easy dosing and minimizes inventory requirements, making it a versatile and cost-effective solution"
-      ]
-    },
-    "benefits": {
-      "title": "Benefits",
-      "main_benefit": {
-        "title": "Main benefit",
-        "content": "Reduces fuel consumption, saving much more than the cost of the FuelOx® additive while reducing environmental damage."
-      },
-      "secondary_benefits": {
-        "title": "Secondary benefits",
-        "content": [
-          "Less soot and 50% fewer regenerations.",
-          "15-20% less DEF (AdBlue) usage.",
-          "Stabilises fuel for long term storage.",
-          "Breaks emulsions and prevents bacteria.",
-          "EGR Coolers and valves and all sensors stay cleaner."
-        ]
-      }
-    }
-  },
-  "documentation_page": {
-    "Technical": "Technical",
-    "Vehicle": "Vehicle",
-    "Static": "Static",
-    "Marine": "Marine",
-    "Business": "Business"
-  },
-  "slogan": ["Save Fuel", "Protect Earth", "Reduce Cost"],
-  "contactForm": {
-    "emailSuccess": "Success",
-    "emailFail": "Failed to send",
-    "lastName": "Last name",
-    "firstName": "First name",
-    "phoneNumber": "Phone number",
-    "email": "Email",
-    "message": "Message",
-    "message_placeholder": "Add a message",
-    "company": "Company",
-    "reason": "Reason",
-    "reason_placeholder": "Select",
-    "submit": "Submit",
-    "reason_options": {
-      "trial_enquiry": "Request a free trial",
-      "place_an_order": "Place an order",
-      "general_enquiry": "General enquiry",
-      "other": "Other"
-    },
-    "contact_us": "Issues with the form ? Contact us at "
-  },
-  "place_order_page": {
-    "form": {
-      "success": "Order sent",
-      "fail": "Error",
-      "lastName": "Last name",
-      "firstName": "First name",
-      "phoneNumber": "Phone number",
-      "email": "Email",
-      "message": "Additional info",
-      "company": "Company",
-      "fuelOx_quantity": "FuelOx (L)",
-      "bottle_quantity": "Bottles (100ml)",
-      "invalid_email_address": "Invalid email address",
-      "email_success": "Order places successfully. A confirmation email was sent to your email address.",
-      "select_country": "Please select the delivery country.",
-      "email_fail": "Order failed, please try again. If the issue persists, contact our team on the contact page.",
-      "countries": {
-        "Austria": "Austria",
-        "Belgium": "Belgium",
-        "Bulgaria": "Bulgaria",
-        "Croatia": "Croatia",
-        "Cyprus": "Cyprus",
-        "Czechia": "Czechia",
-        "Denmark": "Denmark",
-        "Estonia": "Estonia",
-        "Finland": "Finland",
-        "France": "France",
-        "Germany": "Germany",
-        "Greece": "Greece",
-        "Hungary": "Hungary",
-        "Ireland": "Ireland",
-        "Italy": "Italy",
-        "Latvia": "Latvia",
-        "Lithuania": "Lithuania",
-        "Luxembourg": "Luxembourg",
-        "Malta": "Malta",
-        "Netherlands": "Netherlands",
-        "Poland": "Poland",
-        "Portugal": "Portugal",
-        "Romania": "Romania",
-        "Slovakia": "Slovakia",
-        "Slovenia": "Slovenia",
-        "Spain": "Spain",
-        "Sweden": "Sweden"
-      },
-      "address": {
-        "country": "Country",
-        "city": "City",
-        "street_address": "Street address",
-        "postcode": "Post code"
-      },
-      "price": "Price (delivery not included)",
-      "submit": "Submit",
-      "message_placeholder": "Add a message"
-    }
-  },
-  "the_team": {
-    "michael": {
-      "title": "Michael DEVEREUX",
-      "position": "Technical Lead",
-      "content": "With his background in computer science and engineering, Michael ensures that all our digital needs are met."
-    },
-    "steve": {
-      "title": "Steve DEVEREUX",
-      "position": "President",
-      "content": "After 40 years of drilling oil wells, Steve now focuses his efforts on reducing the burning of fossil fuels and cutting pollution."
-    },
-    "lesley": {
-      "title": "Lesley VAQUERO",
-      "position": "Sales Director",
-      "content": "An entrepreneur since 2008, Lesley boldly leads commercial strategies and teams to accelerate our growth and promote sustainable energy solutions."
-    }
   }
 }

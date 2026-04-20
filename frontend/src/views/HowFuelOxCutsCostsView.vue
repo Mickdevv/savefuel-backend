@@ -7,7 +7,7 @@ import { useRouter } from 'vue-router';
 const router = useRouter()
 
 const currentPageStore = useCurrentPageStore()
-currentPageStore.setCurrentPage('How Fuel Ox cuts costs')
+currentPageStore.setCurrentPage('how-fo-cuts-costs')
 </script>
 
 
@@ -17,7 +17,8 @@ currentPageStore.setCurrentPage('How Fuel Ox cuts costs')
 
     <div class="text-container">
       <p>{{ $t('pages.how-fo-cuts-costs.p1') }}</p>
-      <p>{{ $t('pages.how-fo-cuts-costs.p2') }}<a href="">here</a></p>
+      <p>{{ $t('pages.how-fo-cuts-costs.p2') }}<a
+          href="https://save-fuel.eu/docs/fr/Vehicle/France-2025-TurboDiesel-22pc-moins-fioul.pdf">here</a></p>
       <p>{{ $t('pages.how-fo-cuts-costs.p3') }}</p>
       <p>{{ $t('pages.how-fo-cuts-costs.p4') }}</p>
       <p>{{ $t('pages.how-fo-cuts-costs.p5') }}</p>
@@ -25,7 +26,7 @@ currentPageStore.setCurrentPage('How Fuel Ox cuts costs')
 
     <div class="cost-calculator-container">
       <CostBenefitCalculator class="cost-benefit-calculator" />
-      <Button @click="router.push('/free-trial-procedure')" class="learn-more-button"
+      <Button @click="router.push('/free-trial-procedure')" class="primary-button"
         :label="$t('pages.how-fo-cuts-costs.explore-a-free-trial-button')" severity="warning" />
     </div>
   </div>

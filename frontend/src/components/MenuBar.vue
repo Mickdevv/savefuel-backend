@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { NavBarItem } from '@/types/navbar-item';
-import { ref } from 'vue';
+import { computed, ref } from 'vue';
 import PanelMenu from 'primevue/panelmenu';
 import 'primeicons/primeicons.css'
 import Menu from 'primevue/menu';
@@ -10,82 +10,85 @@ import { useLocaleStore } from '@/stores/selected-language';
 import { LocaleOptions } from '@/types/enums/locales.enum';
 import { useCurrentPageStore } from '@/stores/current-page';
 import { useRouter } from 'vue-router';
+import { useI18n } from 'vue-i18n';
 
 const localeStore = useLocaleStore()
 const currentPageStore = useCurrentPageStore()
 const menu = ref();
 
+const { t } = useI18n()
+
 const router = useRouter()
 
-const items = ref([
+const items = computed(() => [
   {
-    label: 'Home',
-    icon: 'pi pi-eraser',
+    label: t('menubar.home'),
+    // icon: 'pi pi-eraser',
     command: () => router.push('/')
   },
 
   {
-    label: 'How FO custs costs',
-    icon: 'pi pi-eraser',
+    label: t('menubar.how-fo-cuts-costs'),
+    // icon: 'pi pi-eraser',
     command: () => router.push('/how-fuel-ox-cuts-costs')
   },
 
   {
-    label: 'Free trial procedure',
-    icon: 'pi pi-eraser',
+    label: t('menubar.free-trial-procedure'),
+    // icon: 'pi pi-eraser',
     command: () => router.push('/free-trial-procedure')
   },
 
   {
-    label: '4 Guarantees',
-    icon: 'pi pi-eraser',
+    label: t('menubar.four-guarantees'),
+    // icon: 'pi pi-eraser',
     command: () => router.push('/four-guarantees')
   },
 
   {
-    label: 'Technical',
-    icon: 'pi pi-eraser',
+    label: t('menubar.technical'),
+    // icon: 'pi pi-eraser',
     command: () => router.push('/technical')
   },
 
   {
-    label: 'Vehicles',
-    icon: 'pi pi-eraser',
+    label: t('menubar.vehicles'),
+    // icon: 'pi pi-eraser',
     command: () => router.push('/vehicles')
   },
 
   {
-    label: 'Generators',
-    icon: 'pi pi-eraser',
+    label: t('menubar.generators'),
+    // icon: 'pi pi-eraser',
     command: () => router.push('/generators')
   },
   {
-    label: 'About Save Fuel Europe',
-    icon: 'pi pi-eraser',
+    label: t('menubar.about'),
+    // icon: 'pi pi-eraser',
     command: () => router.push('/about')
   },
 
-  {
-    label: '2026 Price list',
-    icon: 'pi pi-eraser',
-    command: () => router.push('/price-list')
-  },
-
-  {
-    label: 'SFE legal details',
-    icon: 'pi pi-heart',
-    command: () => router.push('/legal')
-  },
-  {
-    label: 'GDPR declaration',
-    icon: 'pi pi-eraser',
-    command: () => router.push('/gdpr')
-  },
-  {
-    label: 'contact@save-fuel.eu',
-    icon: 'pi pi-eraser',
-    command: () => router.push('/contact')
-  },
+  // {
+  //   label: '2026 Price list',
+  //   // icon: 'pi pi-eraser',
+  //   command: () => router.push('/price-list')
+  // },
+  //
+  // {
+  //   label: 'SFE legal details',
+  //   // icon: 'pi pi-heart',
+  //   command: () => router.push('/legal')
+  // },
+  // {
+  //   label: 'GDPR declaration',
+  //   // icon: 'pi pi-eraser',
+  //   command: () => router.push('/gdpr')
+  // },
+  // {
+  //   label: 'contact@save-fuel.eu',
+  //   // icon: 'pi pi-eraser',
+  //   command: () => router.push('/contact')
+  // },
 ])
 const toggle = (event: any) => {
   menu.value.toggle(event);
@@ -103,7 +106,7 @@ const toggle = (event: any) => {
         <p class="company-name">Save Fuel Europe SAS</p>
       </div>
       <div>
-        <h2>{{ currentPageStore.currentPage }}</h2>
+        <h2>{{ $t(`pages.${currentPageStore.currentPage}.page-title`) }}</h2>
       </div>
       <div class="links">
         <span class="icons">

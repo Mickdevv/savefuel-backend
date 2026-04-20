@@ -6,7 +6,7 @@ import { useRouter } from 'vue-router';
 const router = useRouter()
 
 const currentPageStore = useCurrentPageStore()
-currentPageStore.setCurrentPage('Generators')
+currentPageStore.setCurrentPage('generators')
 </script>
 <template>
   <div class="page-container">
@@ -31,6 +31,11 @@ currentPageStore.setCurrentPage('Generators')
       </p>
     </div>
     <div class="right-container">
+      <div class="images">
+        <img src="@/assets/7_kW_generator.png" alt="">
+        <img src="@/assets/Generator_photo.png" alt="">
+
+      </div>
       <Button @click="router.push('/four-guarantees')" class="primary-button"
         :label="$t('pages.generators.four-guarantees-button')"></Button>
     </div>
@@ -41,11 +46,25 @@ currentPageStore.setCurrentPage('Generators')
   display: block;
 }
 
+.images {
+  display: none;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 1rem;
+}
+
 .right-container .left-container {
   width: 100%;
 }
 
 @media (min-width: 1080px) {
+  .images {
+    display: block;
+  }
+
   .page-container {
     display: flex;
   }
