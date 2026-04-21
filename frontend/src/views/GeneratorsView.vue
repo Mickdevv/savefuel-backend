@@ -18,7 +18,8 @@ currentPageStore.setCurrentPage('generators')
 
       <h2>{{ $t('pages.generators.other-benefits.title') }}</h2>
       <p>{{ $t('pages.generators.other-benefits.p1_1') }}
-        <a href="">{{ $t('pages.generators.other-benefits.p1_2') }}</a>
+        <a target="_blank" :href="$t('links.documents.fo-white-paper')">{{ $t('pages.generators.other-benefits.p1_2')
+          }}</a>
         {{ $t('pages.generators.other-benefits.p1_3') }}
       </p>
       <ul class="custom-list">
@@ -26,8 +27,9 @@ currentPageStore.setCurrentPage('generators')
       </ul>
       <h2>{{ $t('pages.generators.trial-reports.title') }}</h2>
       <p>
-        <a href="">{{ $t('pages.generators.trial-reports.p1') }}</a>, <a href="">{{
-          $t('pages.generators.trial-reports.p2') }}</a>
+        <a target="_blank" :href="$t('links.documents.peruvian-mine')">{{ $t('pages.generators.trial-reports.p1')
+          }}</a>, <a target="_blank" :href="$t('links.documents.')">{{
+            $t('pages.generators.trial-reports.p2') }}</a>
       </p>
     </div>
     <div class="right-container">

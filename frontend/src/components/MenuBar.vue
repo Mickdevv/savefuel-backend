@@ -72,25 +72,29 @@ const items = computed(() => [
   },
 
   {
-    label: '2026 Price list',
+    label: t('menubar.price-list'),
     // icon: 'pi pi-eraser',
-    command: () => router.push('/price-list')
+    command: () => window.open(t('links.documents.price-list'))
   },
 
   {
-    label: 'SFE legal details',
+    label: t('menubar.legal-details'),
     // icon: 'pi pi-heart',
-    command: () => router.push('/legal')
+    command: () => window.open(t('links.documents.legal-details'))
   },
   {
-    label: 'GDPR declaration',
+    label: t('menubar.gdpr'),
     // icon: 'pi pi-eraser',
-    command: () => router.push('/gdpr')
+    command: () => window.open(t('links.documents.gdpr'))
+  },
+  {
+    separator: true
   },
   {
     label: 'contact@save-fuel.eu',
-    // icon: 'pi pi-eraser',
-    command: () => router.push('/contact')
+    // icon: 'pi pi-eraser',  
+    command: () => window.location.href = 'mailto:contact@save-fuel.eu'
+
   },
 ])
 const toggle = (event: any) => {
@@ -104,10 +108,12 @@ const toggle = (event: any) => {
 <template>
   <div class="page-top-container">
     <div class="menubar">
-      <div style="font-weight: bold; display: flex;">
-        <img src="../assets/SFE_Logo.png" style="max-width: 3rem;" />
-        <p class="company-name">Save Fuel Europe SAS</p>
-      </div>
+      <a class="logo-link" href="/">
+        <div style="font-weight: bold; display: flex;">
+          <img src="../assets/SFE_Logo.png" style="max-width: 3rem;" />
+          <p class="company-name">Save Fuel Europe SAS</p>
+        </div>
+      </a>
       <div>
         <h2>{{ $t(`pages.${currentPageStore.currentPage}.page-title`) }}</h2>
       </div>
@@ -226,6 +232,17 @@ const toggle = (event: any) => {
 .border-right {
   border-right: solid;
   padding: 0rem 0.5rem;
+}
+
+
+.logo-link {
+  text-decoration: none;
+  color: inherit;
+  transition: 0.2s;
+}
+
+.logo-link:hover {
+  background: none;
 }
 
 .menubar-item {

@@ -66,10 +66,6 @@ const { tm } = useI18n()
     flex-wrap: nowrap;
   }
 
-  .paragraphs-column {
-    max-width: 75%
-  }
-
   .images-column-container {
     max-width: 25%;
     display: flex;

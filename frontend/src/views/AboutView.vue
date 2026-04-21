@@ -13,12 +13,17 @@ currentPageStore.setCurrentPage('about')
     <p>{{ $t('pages.about.p1') }}</p>
     <p>{{ $t('pages.about.p2') }}</p>
     <p>{{ $t('pages.about.p3') }}</p>
-    <p>{{ $t('pages.about.p4_1') }} <a href="">{{ $t('pages.about.p4_2') }}</a> {{ $t('pages.about.p4_3') }} <a
-        href="">{{ $t('pages.about.p4_4') }}</a> {{ $t('pages.about.p4_5') }} </p>
-    <p>{{ $t('pages.about.p5_1') }} <a href="">{{ $t('pages.about.p5_2') }}</a> {{ $t('pages.about.p5_3') }} </p>
-    <p>{{ $t('pages.about.p6_1') }} <a href="">{{ $t('pages.about.p6_2') }}</a> {{ $t('pages.about.p6_3') }} </p>
+    <p>{{ $t('pages.about.p4_1') }} <a target="_blank" :href="$t('links.documents.trial-procedure')">{{
+      $t('pages.about.p4_2') }}</a> {{ $t('pages.about.p4_3') }} <a target="_blank"
+        :href="$t('links.documents.land-cruiser-22pc-report')">{{ $t('pages.about.p4_4') }}</a> {{
+          $t('pages.about.p4_5') }} </p>
+    <p>{{ $t('pages.about.p5_1') }} <a target="_blank" :href="$t('links.documents.laguilhon-trial')">{{
+      $t('pages.about.p5_2') }}</a> {{ $t('pages.about.p5_3') }} </p>
+    <p>{{ $t('pages.about.p6_1') }} <a target="_blank" :href="$t('links.documents.land-rover-trial')">{{
+      $t('pages.about.p6_2') }}</a> {{ $t('pages.about.p6_3') }} </p>
     <p>{{ $t('pages.about.p7') }}</p>
-    <p>{{ $t('pages.about.p8_1') }} <a href="">{{ $t('pages.about.p8_2') }}</a> {{ $t('pages.about.p8_3') }} </p>
+    <p>{{ $t('pages.about.p8_1') }} <a target="_blank" :href="$t('links.documents.intertek-EN590-test')">{{
+      $t('pages.about.p8_2') }}</a> {{ $t('pages.about.p8_3') }} </p>
     <p>{{ $t('pages.about.p9') }}</p>
     <p>{{ $t('pages.about.p10') }}</p>
   </div>

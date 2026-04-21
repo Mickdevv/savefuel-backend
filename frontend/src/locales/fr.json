@@ -7,7 +7,10 @@
     "technical": "Technique",
     "vehicles": "Véhicules",
     "generators": "Générateurs",
-    "about": "À propos"
+    "about": "À propos",
+    "price-list": "Liste prix 2026",
+    "legal-details": "SFE infos légales",
+    "gdpr": "Déclaration GDPR"
   },
   "pages": {
     "home": {
@@ -220,15 +223,31 @@
     "cost_savings": "Économies réalisées"
   },
   "links": {
+    "videos": {
+      "how-to-add-fo": " https://www.youtube.com/watch?v=9iECyfYqDSI"
+    },
     "documents": {
+      "land-rover-trial": "https://save-fuel.eu/docs/fr/Vehicle/France-2025-LandRover-9pc-moins-fioul.pdf",
+      "trial-procedure": "https://save-fuel.eu/docs/fr/Vehicle/Procedure-essai-v%C3%A9hicule.pdf",
       "land-cruiser-22pc-report": "https://save-fuel.eu/docs/fr/Vehicle/France-2025-TurboDiesel-22pc-moins-fioul.pdf",
-      "fuel-ox-white-paper": "https://save-fuel.eu/docs/fr/Technical/FuelOx-Livre-Blanc.pdf",
+      "fo-white-paper": "https://save-fuel.eu/docs/fr/Technical/FuelOx-Livre-Blanc.pdf",
       "laguilhon-trial": "https://save-fuel.eu/docs/fr/Vehicle/France-2026-test-Mercedes-Sprinter.pdf",
-      "SARL-Bearn-trial": "",
       "burkhina-faso-mine": "https://save-fuel.eu/docs/fr/Static/Mine-d'or-Burkina-Faso.pdf",
       "ghana-mine": "https://save-fuel.eu/docs/fr/Static/Adamus-Resources-Ghana-mine.pdf",
-      "how-tu-use-fuel-ox": "https://save-fuel.eu/docs/fr/Vehicle/Application-FuelOx-Camions.pdf",
-      "scotland-ford-transit": "https://save-fuel.eu/docs/fr/Vehicle/Transit-Van-Emissions-Results.pdf"
+      "how-tu-use-fo": "https://save-fuel.eu/docs/fr/Vehicle/Application-FuelOx-Camions.pdf",
+      "gdpr": "https://save-fuel.eu/docs/fr/Business/Declaration-RGPD.pdf",
+      "legal-details": "https://save-fuel.eu/docs/fr/Business/A-propos-de-notre-societe.pdf",
+      "price-list": "https://save-fuel.eu/docs/fr/Business/FuelOx-liste-de-prix.pdf",
+      "fo-guarantee": "https://save-fuel.eu/docs/fr/Business/FuelOx-Guarantee-October-2025.pdf",
+      "scotland-ford-transit": "https://save-fuel.eu/docs/fr/Vehicle/Transit-Van-Emissions-Results.pdf",
+      "intertek-EN590-test": "https://save-fuel.eu/docs/fr/Technical/EN590-Rapport-Analyse-Fuel-Ox.pdf",
+      "product-information": "https://save-fuel.eu/docs/fr/Technical/FuelOx-Information-Produit.pdf",
+      "faq": "https://save-fuel.eu/docs/fr/Technical/FAQ.pdf",
+      "gnr-compared-to-EN590": "",
+      "fo-MSDS": "https://save-fuel.eu/docs/fr/Technical/FuelOx-Fiche-Donnees-Securite.pdf",
+      "ASTM-D975-test": "https://save-fuel.eu/docs/fr/Technical/ASTM-D975-Rapport-Analyse-Fuel-Ox.pdf",
+      "UAE-mitsubishi-test": "https://save-fuel.eu/docs/fr/Vehicle/UAE-Emissions-Camion.pdf",
+      "peruvian-mine": "https://save-fuel.eu/docs/fr/Static/Peru-Mine-Generator.pdf"
     }
   }
 }

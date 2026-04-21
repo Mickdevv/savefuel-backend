@@ -17,7 +17,7 @@ currentPageStore.setCurrentPage('how-fo-cuts-costs')
 
     <div class="text-container">
       <p>{{ $t('pages.how-fo-cuts-costs.p1') }}</p>
-      <p>{{ $t('pages.how-fo-cuts-costs.p2') }}<a
+      <p>{{ $t('pages.how-fo-cuts-costs.p2') }}<a target="_blank"
           href="https://save-fuel.eu/docs/fr/Vehicle/France-2025-TurboDiesel-22pc-moins-fioul.pdf">here</a></p>
       <p>{{ $t('pages.how-fo-cuts-costs.p3') }}</p>
       <p>{{ $t('pages.how-fo-cuts-costs.p4') }}</p>

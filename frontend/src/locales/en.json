@@ -7,7 +7,10 @@
     "technical": "Technical",
     "vehicles": "Vehicles",
     "generators": "Generators",
-    "about": "About"
+    "about": "About",
+    "price-list": "2026 Price list",
+    "legal-details": "SFE legal details",
+    "gdpr": "GDPR declaration"
   },
   "pages": {
     "home": {
@@ -22,7 +25,7 @@
     "how-fo-cuts-costs": {
       "page-title": "How Fuel Ox cuts costs",
       "p1": "Fuel Ox treatment cuts fuel consumption by two separate methods.  It improves burn efficiency and improves engine efficiency. ",
-      "p2": "Treatment over several tanks of fuel cleans the fuel and ignition systems of sludges and deposits which makes  the engine work more efficiently.  With a 2005 high mileage turbo diesel vehicle, this made a dramatic difference.   The road test showed a 17% reduction in fuel consumption from cleaning the engine systems.  Treated fuel burns more completely, less fuel is required to give the same power output.  This enhanced combustion cut consumption by another 5%.  The total saving was 22%.  Read the full test report here. ",
+      "p2": "Treatment over several tanks of fuel cleans the fuel and ignition systems of sludges and deposits which makes  the engine work more efficiently.  With a 2005 high mileage turbo diesel vehicle, this made a dramatic difference.   The road test showed a 17% reduction in fuel consumption from cleaning the engine systems.  Treated fuel burns more completely, less fuel is required to give the same power output.  This enhanced combustion cut consumption by another 5%.  The total saving was 22%.  Read the full test report ",
       "p3": "We guarantee that your vehicle will see a reduced fuel consumption of at least 7%. This is guaranteed by you performing  a free trial of Fuel Ox on a vehicle in your fleet. ",
       "p4": "You can use our calculator to see the potential savings.  Enter the current fuel price and  your monthly fleet fuel consumption in litres to see the minimum cost savings if all your fleet is treated fuel with Fuel Ox. ",
       "p5": "Detailed technical information is in the Fuel Ox White Paper.",
@@ -225,5 +228,33 @@
     "fuelOx_cost": "FuelOx® cost",
     "fuelOx_cost_per_L": "Cost to treat 1L of fuel",
     "cost_savings": "Cost savings"
+  },
+  "links": {
+    "videos": {
+      "how-to-add-fo": " https://www.youtube.com/watch?v=9iECyfYqDSI"
+    },
+    "documents": {
+      "land-rover-trial": "https://save-fuel.eu/docs/en/Vehicle/France-2025-test-9pc-reduction.pdf",
+      "trial-procedure": "https://save-fuel.eu/docs/en/Vehicle/Vehicle-test-procedure.pdf",
+      "land-cruiser-22pc-report": "https://save-fuel.eu/docs/en/Vehicle/France-2025-TurboDiesel-22pc-less-fuel.pdf",
+      "fo-white-paper": "https://save-fuel.eu/docs/en/Technical/FuelOx-White-Paper.pdf",
+      "laguilhon-trial": "https://save-fuel.eu/docs/en/Vehicle/France-2026-test-Mercedes-Sprinter.pdf",
+      "burkhina-faso-mine": "https://save-fuel.eu/docs/en/Static/Goldmine-Trial-Burkina-Faso.pdf",
+      "ghana-mine": "https://save-fuel.eu/docs/en/Static/Adamus-Resources-Ghana-mine.pdf",
+      "how-tu-use-fo": "https://save-fuel.eu/docs/en/Technical/Using-FuelOx.pdf",
+      "gdpr": "https://save-fuel.eu/docs/en/Business/GDPR-statement.pdf",
+      "legal-details": "https://save-fuel.eu/docs/en/Business/Company-Information.pdf",
+      "price-list": "https://save-fuel.eu/docs/en/Business/FuelOx-Price-List.pdf",
+      "scotland-ford-transit": "https://save-fuel.eu/docs/en/Vehicle/Transit-Van-Emissions-Results.pdf",
+      "fo-guarantee": "https://save-fuel.eu/docs/en/Business/FuelOx-Guarantee-October-2025.pdf",
+      "intertek-EN590-test": "https://save-fuel.eu/docs/en/Technical/EN590-diesel-labtests.pdf",
+      "product-information": "https://save-fuel.eu/docs/en/Technical/FuelOx-Product-Information.pdf",
+      "faq": "https://save-fuel.eu/docs/en/Technical/FAQ.pdf",
+      "gnr-compared-to-EN590": "https://save-fuel.eu/docs/en/Technical/GNR-compared-to-EN590-fuel.pdf",
+      "fo-MSDS": "https://save-fuel.eu/docs/en/Technical/FuelOx-Material-Safety-Data-Sheet.pdf",
+      "ASTM-D975-test": "https://save-fuel.eu/docs/en/Technical/ASTM-D975-diesel-labtests.pdf",
+      "UAE-mitsubishi-test": "https://save-fuel.eu/docs/en/Vehicle/UAE-truck-emissions-trial.pdf",
+      "peruvian-mine": "https://save-fuel.eu/docs/en/Static/Peruvian-Mine-emissions-reduction.pdf"
+    }
   }
 }

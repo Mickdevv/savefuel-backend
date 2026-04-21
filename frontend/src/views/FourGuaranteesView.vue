@@ -11,11 +11,12 @@ currentPageStore.setCurrentPage('four-guarantees')
   <div class="page-container">
     <div class="left-container">
       <h2>{{ $t('pages.four-guarantees.manufacturers-guarantee.title') }}</h2>
-      <p>{{ $t('pages.four-guarantees.manufacturers-guarantee.p1_1') }} <a href="">{{
-        $t('pages.four-guarantees.manufacturers-guarantee.p1_2') }}</a></p>
+      <p>{{ $t('pages.four-guarantees.manufacturers-guarantee.p1_1') }} <a
+          :href="$t('links.documents.fuel-ox-guarantee')" target="_blank">{{
+            $t('pages.four-guarantees.manufacturers-guarantee.p1_2') }}</a></p>
 
       <h2>{{ $t('pages.four-guarantees.EN590-ASTM-950.title') }}</h2>
-      <p>{{ $t('pages.four-guarantees.EN590-ASTM-950.p1_1') }} <a href="">{{
+      <p>{{ $t('pages.four-guarantees.EN590-ASTM-950.p1_1') }} <a :href="$t('links.documents.intertek-EN590-test')">{{
         $t('pages.four-guarantees.EN590-ASTM-950.p1_2') }}</a></p>
       <p>{{ $t('pages.four-guarantees.EN590-ASTM-950.p2') }}</p>
 
