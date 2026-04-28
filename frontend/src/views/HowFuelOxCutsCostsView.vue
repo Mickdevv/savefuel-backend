@@ -52,8 +52,6 @@ currentPageStore.setCurrentPage('how-fo-cuts-costs')
   }
 }
 
-.text-container {}
-
 p {
   font-size: 1rem;
   margin-top: 2rem;
