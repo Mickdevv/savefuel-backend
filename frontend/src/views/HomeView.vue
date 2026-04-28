@@ -23,9 +23,9 @@ currentPageStore.setCurrentPage('home')
 
 <style scoped>
 p {
-  font-size: 2rem;
+  font-size: 1.8rem;
   margin-top: 4rem;
-  font-weight: bold;
+  font-weight: 500;
 }
 
 .learn-more-button {
