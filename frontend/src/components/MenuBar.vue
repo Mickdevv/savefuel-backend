@@ -170,7 +170,7 @@ const toggle = (event: any) => {
 
 .page-top-container {
   background: linear-gradient(to bottom,
-      rgba(44, 57, 245, 0.7) 0%,
+      rgba(44, 57, 245, 0.3) 0%,
       /* rgba(44, 57, 205, 0.5) 50%, */
       rgba(44, 57, 245, 0) 100%);
 }
