@@ -25,16 +25,16 @@
     },
     "how-fo-cuts-costs": {
       "page-title": "Comment Fuel Ox réduit les coûts",
-      "p1": "Fuel Ox agit de deux façons complémentaires pour réduire durablement votre consommation.  Il améliore la combustion du carburant et optimise le rendement global de votre moteur. ",
-      "p2": "Au fil des pleins, le traitement nettoie progressivement les systèmes d’alimentation et d’allumage.  Résultat : un moteur plus propre, plus performant, et plus efficace.  Sur un véhicule diesel turbo de 2005 avec un kilométrage élevé, des tests ont montré une réduction de consommation allant jusqu’à 22 % : ",
-      "p3": "17 % d’économie grâce au nettoyage du moteur et du système carburant  ",
-      "p4": "5 % supplémentaires grâce à une combustion plus complète et plus efficace  ",
-      "p5": "Une meilleure combustion signifie simplement qu’il faut moins de carburant pour produire la même puissance.",
+      "p1": "Le traitement Fuel Ox réduit la consommation de carburant par deux méthodes distinctes, améliorant l'efficacité de combustion et le moteur aussi.",
+      "p2": "Le traitement sur plusieurs pleins de carburant décrasse les systèmes de carburant et d'allumage rendant le moteur plus efficace.  Sur un véhicule turbo diesel à kilométrage élevé de 2005, une économie de 22% de carburant a pu être observé. ",
+      "p3": "L'essai sur route a montré une réduction de 17 % dans la consommation de carburant due au décrassement des systèmes moteur. ",
+      "p4": "Cette combustion améliorée a permis une économie supplémentaire de 5%. ",
+      "p5": "Le combustible traité brûle plus complètement, moins de carburant est donc nécessaire pour obtenir la même puissance.",
       "p6_1": "Consultez le rapport complet des tests ",
       "p6_2": "ici.",
-      "p7": "Nous nous engageons sur des résultats concrets : vous bénéficiez d’une réduction minimale de 7 % de votre consommation, garantie grâce à un essai gratuit réalisé sur l’un de vos véhicules. ",
-      "p8": "Grâce à notre calculatrice ici, visualisez facilement les économies potentielles.  Indiquez le prix du carburant et votre consommation mensuelle, et obtenez une estimation claire des gains possibles sur l’ensemble de votre flotte. ",
-      "p9_1": "Besoin de plus d’informations ?  Retrouvez toutes les données techniques détaillées dans notre ",
+      "p7": "Nous garantissons que votre véhicule aura une réduction dans la consommation de carburant d'au moins 7 %. Cela est garanti par un essai gratuit de Fuel Ox avec un véhicule de votre flotte.",
+      "p8": "Notre calculatrice est à votre disposition pour vous permettre de voir les économies éventuelles que vous pourrez faire. Entrez le prix du carburant ainsi que votre consommation mensuelle en litres. Les résultats vous montreront les gains minimum si toute votre flotte est traité avec Fuel Ox.",
+      "p9_1": "Les informations techniques détaillées se trouvent dans le  ",
       "p9_2": "Livre blanc Fuel Ox",
       "explore-a-free-trial-button": "Découvrir un essai gratuit"
     },
@@ -86,14 +86,14 @@
         "p1_2": "livre blanc Fuel Ox ",
         "p1_3": "pour des informations techniques détaillées. ",
         "bullet-points": [
-          "La polymérisation des molécules de carburant est rompue et leur re-polymérisation est empêchée, ce qui maximise l’efficacité de la combustion.",
-          "Les émissions d’oxydes d’azote (NOx) diminuent, ce qui réduit également la consommation d’AdBlue.",
-          "Environ 60 % de particules de suie noire en moins sont produites. Les filtres à particules (DPF) sont moins sollicités, avec moins de cycles de régénération, et leur durée de vie est prolongée.",
-          "Les émulsions et les boues qui obstruent les filtres sont décomposées.",
-          "La croissance microbienne est éliminée grâce à un agent biostatique.",
-          "Le produit contient des composés agissant comme catalyseurs, réduisant le monoxyde de carbone et les hydrocarbures imbrûlés en CO₂ et en eau.",
-          "La durée de stockage du carburant peut être prolongée jusqu’à 2 ans.",
-          "Les motos accélèrent plus rapidement et parcourent une plus grande distance avec un plein."
+          "Polymérisation des molécules de combustible brisées et re-polymérisation empêchée.  Maximise l'efficacité de la combustion.",
+          "LLes émissions de protoxyde d'azote diminuent, donc l'utilisation d'AdBlue diminue également.",
+          "~ 60 % de particules de suie noire en moins sont produites.  Les filtres DPF fonctionnent moins avec moins de cycles de régénération et durent plus longtemps",
+          "Les émulsions et boues qui bloquent les filtres sont cassées.",
+          "La croissance microbienne est éliminée par un agent biostatique.",
+          "Incorpore des composés qui agissent comme catalyseurs, réduisant le monoxyde de carbone et les hydrocarbures non brûlés en CO<sub>2</sub> et eau.",
+          "La durée de conservation du carburant s'étendait jusqu'à 2 ans.",
+          "Les motos accélèrent plus vite, vont plus loin avec un réservoir de carburant."
         ]
       },
       "trial-reports": {
@@ -101,7 +101,7 @@
         "t1_1": "France, Mercedes Sprinter avec réfrigération.  10 % d'économie de carburant. ",
         "t1_2": "Laguilhon SAS.",
         "t2_1": "France, véhicule tout-terrain, économie de carburant de 9 %. ",
-        "t2_2": "SARL Terre de Béarn.",
+        "t2_2": "SARL Béarn Land.",
         "t3_1": "France, Land Cruiser turbo diesel, économie de carburant de 22 %.  ",
         "t3_2": "Toyota Land cruiser. ",
         "t4_1": "Mine d'or Burkino Faso. ",
@@ -127,12 +127,12 @@
       "page-title": "Quatre garanties",
       "manufacturers-guarantee": {
         "title": "Garantie des fabricants ",
-        "p1_1": "Fuel Ox a une assurance pouvant aller jusqu'à 2 000 000 $ US en cas de dommage au moteur causé par le traitement Fuel Ox.  Aucune revendication n'a jamais été faite. Aucun utilisateur n'a jamais affirmé que l'utilisation de Fuel Ox avait endommagé son moteur.  ",
+        "p1_1": "Fuel Ox a une assurance pouvant aller jusqu'à 2 000 000 $ US en cas de dommage au moteur causé par le traitement Fuel Ox.  Aucune revendication n'a jamais été faite.   Aucun utilisateur n'a jamais affirmé que l'utilisation de Fuel Ox avait endommagé son moteur. ",
         "p1_2": "Voir la garantie FuelOx. "
       },
       "EN590-ASTM-950": {
         "title": "Garanties de conformité EN590 et ASTM-950 ",
-        "p1_1": "Des tests de laboratoire réalisés par Intertek en France ont permis de comparer le diesel non traité au diesel traité avec une concentration deux fois supérieure à la normale de Fuel Ox.  La plupart des mesures étaient les mêmes, 7 montraient de minuscules différences.  Le carburant traité reste conforme aux spécifications EN590.  Le rapport de laboratoire note également que le Red Diesel traité reste également dans les spécifications.  La présence d'oxygène carburant ne peut pas être détectée par un test selon EN590.  La garantie moteur reste valide car le carburant respecte les spécifications requises.  ",
+        "p1_1": "Des tests de laboratoire réalisés par Intertek en France ont permis de comparer le diesel non traité au diesel traité avec une concentration deux fois supérieure à la normale de Fuel Ox.  La plupart des mesures étaient les mêmes, 7 montraient de minuscules différences.  Le carburant traité reste conforme aux spécifications EN590.  Le rapport de laboratoire note également que le Red Diesel traité reste également dans les spécifications.  La présence d'oxygène carburant ne peut pas être détectée par un test selon EN590.  La garantie moteur reste valide car le carburant respecte les spécifications requises. ",
         "p1_2": "Voir les tests EN590 du laboratoire France Intertek. ",
         "p2": "Des tests comparatifs en laboratoire avec la norme américaine ASTM-950 ont également montré que les résultats sur le carburant traité étaient presque identiques et respectaient la norme.  "
       },
@@ -149,7 +149,7 @@
     "generators": {
       "page-title": "Générateurs",
       "direct-cost-benefit": {
-        "title": "Bénéfice financier direct ",
+        "title": "Bénéfice direct en coûts ",
         "p1": "Un générateur typique bien entretenu de 100 kVA à 75 % de pleine charge brûlerait environ 21 L/heure, fournissant ~ 3,6 kWh/L.  Si cela était utilisé sur 22 jours de travail de 8 heures par mois, le carburant non traité serait de 21 x 8 x 22 = 3696 L.  Avec la réduction minimale garantie de 7 % de la consommation, cela permet d'économiser 259 L. ",
         "p2": "Le traitement de 3696 L de carburant nécessite 0,37 L de Fuel Ox, coûtant 73 € + TVA.  Si le carburant coûte 1,67 € + TVA (2,00 € au total), Fuel Ox réduit le coût d'un générateur sur un mois d'au moins 360 €, y compris le coût de Fuel Ox avec une réduction garantie minimale de 7 % sur la consommation de carburant.   ",
         "p3": "Pour les lieux isolés, la logistique devient plus facile car chaque chargement de carburant dure plus longtemps. "
@@ -162,10 +162,10 @@
         "bullet-points": [
           "Polymérisation des molécules de combustible brisées et re-polymérisation empêchée.  Maximise l'efficacité de la combustion.   ",
           "Les émissions de protoxyde d'azote diminuent. ",
-          "Environ 60 % de particules de suie noire en moins sont produites. ",
+          "~ 60 % de particules de suie noire en moins sont produites. ",
           "Les émulsions et boues qui bloquent les filtres sont cassées. ",
           "La croissance microbienne est éliminée par un agent biostatique. ",
-          "Incorpore des composés qui agissent comme catalyseurs, réduisant le monoxyde de carbone et les hydrocarbures non brûlés en CO2 et eau. ",
+          "Incorpore des composés qui agissent comme catalyseurs, réduisant le monoxyde de carbone et les hydrocarbures non brûlés en CO₂ et eau. ",
           "La durée de conservation du carburant s'étendait jusqu'à 2 ans.  Particulièrement utile pour les générateurs d'urgence et le stockage de carburant. "
         ]
       },
@@ -183,7 +183,7 @@
         "p1": "Bell Labs est un laboratoire américain de recherche scientifique et industrielle fondé en 1925.  Il a développé la radioastronomie, les transisters, les lasers, les cellules photovoltaïques, le dispositif à couplage de charge, la théorie de l'information, le système d'exploitation Unix et plusieurs grands langages de programmation.  Ses chercheurs ont reçu onze prix Nobel et cinq prix Turing pour des recherches menées aux Bell Labs, notamment pour la découverte du fond micro-ondes cosmique. ",
         "p2": "Les molécules des combustibles hydrocarburés sont polaires. Elles ont des charges électriques différentes à différents endroits de la molécule. Cela conduit à la polymérisation, où des charges négatives sur une molécule adhèrent aux charges positives sur une autre molécule. Cela provoque la formation d'amas de molécules, empêchant l'oxygène d'atteindre les molécules à l'intérieur de l'amas pendant la combustion. Une combustion incomplète provoque de la suie et des hydrocarbures non brûlés à l'échappement et nécessite plus de carburant pour produire une puissance donnée. Il faut plus d'accélérateur pour maintenir la même puissance.  La polymérisation augmente avec le temps, de sorte qu'après plusieurs mois de production en raffinerie, le combustible devient inutilisable.  Il bouche filtres et conduites de carburant, crée des dépôts à l'intérieur des systèmes d'injection.  Les moteurs deviennent moins efficaces avec l'utilisation, ce qui signifie qu'il faut brûler encore plus de carburant pour obtenir une performance souhaitée. ",
         "p3": "Bell Labs appartenait à la grande société AT&T (Atlantic Telephone and Telegraph) qui possédait une vaste flotte de véhicules à travers les États-Unis. Les laboratoires ont développé un traitement de carburant pour décomposer et prévenir la polymérisation du carburant, restaurant les performances du moteur et la combustion du carburant afin d'améliorer la durée de conservation et de réduire la consommation de carburant. Ce traitement de carburant a ensuite été adopté par l'armée américaine. Son nom actuel est Fuel Ox et il traite actuellement environ 50 millions de litres de carburant par mois, principalement aux États-Unis. ",
-        "p4": "Fuel Ox comprend des catalyseurs.  Un catalyseur provoque des réactions chimiques sans être consommé par la réaction, donc une petite quantité de catalyseur continuera à agir longtemps. Le traitement normal avec Fuel Ox utilise une partie sur 10 000. Un litre de Fuel Ox traite 10 000 litres de carburant. L'amélioration de l'efficacité de combustion est d'environ 5 %. L'amélioration de l'efficacité du moteur peut être bien plus importante, selon l'état du moteur. "
+        "p4": "Fuel Ox comprend des catalyseurs.  Un catalyseur provoque des réactions chimiques sans être consommé par la réaction, donc une petite quantité de catalyseur continuera à agir longtemps. Le traitement normal avec Fuel Ox utilise une partie sur 10 000. Un litre de Fuel Ox traite 10 000 litres de carburant. L'amélioration de l'efficacité de combustion est d'environ 5 %. L'amélioration de l'efficacité du moteur peut être bien plus importante, selon l'état du moteur."
       },
       "technical-documents": {
         "title": "Documents techniques (consultation PDF ou téléchargement) ",
